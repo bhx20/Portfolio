@@ -14,10 +14,10 @@
   --radius-full: 9999px;
 
   /* ── 2. BOX SHADOWS ── */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.60);  /* was --shadow-1 */
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.85); /* was --shadow-2 */
-  --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.95); /* was --shadow-3 */
+  --shadow-sm: 0 2px 8px var(--black-40);
+  --shadow-md: 0 4px 12px var(--black-60);  /* was --shadow-1 */
+  --shadow-lg: 0 10px 30px var(--black-80); /* was --shadow-2 */
+  --shadow-xl: 0 25px 60px var(--black-95); /* was --shadow-3 */
   
   /* Internal Glow Shadows */
   --shadow-inset: inset 0 1px 1px var(--white-10);
@@ -40,23 +40,33 @@
   --border-strong: 1px solid var(--border-strong);
   --border-brand: 1px solid var(--brand-glow);
   --border-brand-strong: 1px solid var(--brand-glow-strong);
-  --border-glass: 1px solid rgba(255, 255, 255, 0.06);
-  --border-glass-strong: 1px solid rgba(255, 255, 255, 0.15);
+  --border-glass: 1px solid var(--border-default);
+  --border-glass-strong: 1px solid var(--brand-glow-strong);
 
   /* ── 4. GLASSMORPHISM ── */
-  --glass-blur-amount: 40px;
-  --glass-saturation-amount: 100%;
+  --glass-blur-amount: 20px;
+  --glass-saturation-amount: 100%; 
   --glass-blur: blur(var(--glass-blur-amount)) saturate(var(--glass-saturation-amount));
   
   --glass-gradient: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      transparent 40%,
-      rgba(255, 255, 255, 0.02) 60%,
-      rgba(255, 255, 255, 0.01) 100%);
+      var(--glass-glow-primary) 0%,
+      var(--transparent) 40%,
+      var(--glass-glow-secondary) 60%,
+      var(--glass-glow-subtle) 100%);
       
-  --glass-shine: radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.04) 0%,
-      transparent 70%);
+  --glass-shine: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--glass-glow-hover),
+    var(--transparent) 40%
+  );
+
+  --glass-refraction: linear-gradient(
+    135deg,
+    var(--glass-glow-hover) 0%,
+    var(--glass-glow-accent) 20%,
+    var(--transparent) 50%,
+    var(--glass-glow-trace) 100%
+  );
 
   /* ── 5. COMPONENT DECORATION ── */
   --card-shadow: var(--shadow-lg);

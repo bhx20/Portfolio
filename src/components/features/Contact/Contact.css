@@ -2,8 +2,6 @@
    CINEMATIC CONTACT BENTO — Section 04
    ===================================================== */
 
-@import "../../../styles/globals.css";
-
 .contact-layout {
   justify-content: center !important;
   align-items: center !important;
@@ -481,9 +479,9 @@
 .wa-dot {
   width: var(--size-dot-md);
   height: var(--size-dot-md);
-  background: var(--color-title);
+  background: var(--brand);
   border-radius: 50%;
-  box-shadow: none;
+  box-shadow: 0 0 10px var(--brand-glow);
   animation: wa-pulse 2s infinite;
 }
 
@@ -564,9 +562,9 @@
   letter-spacing: var(--ls-normal);
   padding: var(--space-3-5xs) var(--space-xs);
   background: var(--brand-glow-soft);
-  border: var(--border-brand);
+  border: 1px solid var(--brand);
   border-radius: var(--radius-sm);
-  color: var(--brand-300);
+  color: var(--brand);
   position: relative;
   z-index: 2;
   animation: border-shimmer 5s infinite ease-in-out;

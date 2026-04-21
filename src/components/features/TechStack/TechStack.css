@@ -2,9 +2,6 @@
    DEEP GLASS BENTO DESIGN - STACK SECTION (03)
    ===================================================== */
 
-/* Global standards now defined in style.css */
-@import "../../../styles/globals.css";
-
 /* .slide-stack-label removed to use global .section-label */
 
 .tech-layout {
@@ -285,10 +282,9 @@
 .evolution-item.active .evolution-dot {
   width: var(--size-dot-xl);
   height: var(--size-dot-xl);
-  background: var(--secondary);
+  background: var(--brand);
   /* Highlight color for selected point */
-  box-shadow: var(--shadow-sm);
-  /* Subtle static glow */
+  box-shadow: 0 0 10px var(--brand-glow);
 }
 
 /* Remove pulse animation as requested */

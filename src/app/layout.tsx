@@ -25,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${hero.name} ${hero.surname} | Portfolio` || "Portfolio",
     description: hero.tag || "Digital Architect Portfolio",
+    themeColor: "#000000",
   };
 }
 
@@ -46,7 +47,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en" className={openSans.variable} suppressHydrationWarning>
+    <html lang="en" className={openSans.variable} style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
         <AppProvider initialData={initialData}>
           {children}

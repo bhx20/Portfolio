@@ -3,21 +3,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePortfolio } from "@/components/shared/providers/AppProvider";
 import { HiOutlineExternalLink, HiOutlineChevronRight, HiOutlineChevronLeft, HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { useLiquidGlass } from "@/lib/hooks/useLiquidGlass";
 import "./Showcase.css";
 
 const Showcase = () => {
   const { data } = usePortfolio();
   const [activeView, setActiveView] = useState<"bento" | "products">("bento");
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    card.style.setProperty("--mouse-x", `${(x / rect.width) * 100}%`);
-    card.style.setProperty("--mouse-y", `${(y / rect.height) * 100}%`);
-  };
+  const { handleMouseMove } = useLiquidGlass();
 
   const showcase = data?.showcase || {};
   const projects = showcase.projects || [];
@@ -68,6 +60,7 @@ const Showcase = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
+                    onMouseMove={handleMouseMove}
                   >
                     {project.image && (
                       <div className="project-media">
@@ -139,11 +132,12 @@ const Showcase = () => {
                 {products.map((product: any, index: number) => (
                   <motion.div
                     key={product.id || index}
-                    className={`bento-card rich-glass showcase-cell product-card showcase-node-${index === 0 ? 0 : index === 1 ? 1 : index === 2 ? 3 : 4}`}
+                    className={`bento-card rich-glass showcase-cell product-card product-node-${index}`}
                     variants={itemVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
+                    onMouseMove={handleMouseMove}
                   >
                     <div className="project-aura" />
 

@@ -4,66 +4,79 @@
    ========================================================================== */
 
 :root {
-  /* ── 1. BRAND BASE (Neutralized) ── */
-  --brand: #ffffff;
-  --brand-rgb: 255, 255, 255;
+  /* ── 1. BRAND BASE (GitHub Tech Blue) ── */
+  --brand: #58A6FF;
+  --brand-rgb: 88, 166, 255;
 
-  /* ── 2. BRAND SCALE (Neutral Grays) ── */
-  --brand-50: #fafafa;
-  --brand-100: #f5f5f5;
-  --brand-200: #e5e5e5;
-  --brand-300: #d4d4d4;
-  --brand-400: #a3a3a3;
-  --brand-500: #737373;
-  --brand-600: #525252;
-  --brand-700: #404040;
-  --brand-800: #262626;
-  --brand-900: #171717;
+  /* ── 2. BRAND SCALE (Blue & Purple Tech System) ── */
+  --brand-50: #ebf5ff;
+  --brand-100: #d1e8ff;
+  --brand-200: #a3d1ff;
+  --brand-300: #75baff;
+  --brand-400: #58A6FF;
+  --brand-500: #3b8ef2;
+  --brand-600: #2e7cd1;
+  --brand-700: #2169b0;
+  --brand-800: #14568f;
+  --brand-900: #0d436e;
 
-  /* ── 4. GLOW SYSTEM (Neutralized) ── */
-  --brand-glow-soft: rgba(255, 255, 255, 0.05);
-  --brand-glow: rgba(255, 255, 255, 0.12);
-  --brand-glow-strong: rgba(255, 255, 255, 0.25);
+  /* ── 3. SECONDARY ACCENT (Creative Purple) ── */
+  --secondary-accent: #8B5CF6;
+  --secondary-accent-rgb: 139, 92, 246;
+
+  /* ── 4. GLOW SYSTEM (Tech Aura) ── */
+  --brand-glow-soft: rgba(88, 166, 255, 0.08);
+  --brand-glow: rgba(88, 166, 255, 0.15);
+  --brand-glow-strong: rgba(88, 166, 255, 0.35);
 
   /* ── 5. TEXT ON BRAND ── */
   --on-brand: #000000;
   --on-brand-muted: rgba(0, 0, 0, 0.6);
 
-  /* ── 6. BACKGROUND SYSTEM (Deep Black) ── */
-  --bg-dark: #000000;
-  --bg-surface: #050505;
-  --bg-elevated: #0a0a0a;
+  /* ── 6. BACKGROUND SYSTEM (GitHub Style) ── */
+  --bg-dark: #0D1117;    /* Soft black / Deep space */
+  --bg-surface: #161B22; /* Layered surface */
+  --bg-elevated: #21262D; 
+
+  /* ── ATMOSPHERIC TOKENS (Tech Vibe) ── */
+  --bg-nebula-1: rgba(88, 166, 255, 0.10); /* Tech Blue Aura */
+  --bg-nebula-2: rgba(139, 92, 246, 0.08);  /* Creative Purple Aura */
+  --bg-grain-opacity: 0.015;                /* Micro grain */
+
 
   /* ── 7. GLASS SYSTEM ── */
-  /* Moved to decoration.css */
   --glass-bg: transparent;
   --glass-bg-hover: rgba(255, 255, 255, 0.02);
+  
+  /* Glass Glow Semantic Tokens (Decoupled) */
+  --glass-glow-primary:   rgba(var(--brand-rgb), 0.05);
+  --glass-glow-secondary: rgba(var(--secondary-accent-rgb), 0.03);
+  --glass-glow-subtle:    rgba(var(--brand-rgb), 0.01);
+  --glass-glow-hover:     rgba(var(--brand-rgb), 0.1);
+  --glass-glow-accent:    rgba(var(--secondary-accent-rgb), 0.05);
+  --glass-glow-trace:     rgba(var(--brand-rgb), 0.02);
 
   /* ── Bento Card Base (Transparent Tahoe — Apple Tahoe) ── */
   --bento-bg: transparent;
-
-  /* ── Particle System Color (read by ParticleBackground.tsx via getComputedStyle) ── */
-  --particle-color: #ffffff;
-
   /* ── 8. BORDER SYSTEM ── */
-  --border-subtle: rgba(255, 255, 255, 0.04);
-  --border-default: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.15);
+  --border-subtle: #30363D;
+  --border-default: #30363D;
+  --border-strong: rgba(139, 148, 158, 0.15);
 
   /* ── 9. TEXT SYSTEM ── */
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.65);
-  --text-muted: rgba(255, 255, 255, 0.40);
-  --text-disabled: rgba(255, 255, 255, 0.20);
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #8B949E;
+  --text-disabled: rgba(139, 148, 158, 0.20);
   
   /* Semantic Text Color Tokens */
-  --color-title:    #ffffff;                  /* h1 / hero name / section heading */
-  --color-subtitle: rgba(255, 255, 255, 0.70); /* h2 / card title / sub-heading */
-  --color-body:     rgba(255, 255, 255, 0.65); /* paragraphs / bio text */
-  --color-label:    rgba(255, 255, 255, 0.45); /* uppercase caps labels / tags */
-  --color-muted:    rgba(255, 255, 255, 0.35); /* watermarks / meta / hints */
-  --color-on-dark:  rgba(255, 255, 255, 0.50); /* scroll text / status text */
-  --color-bg-subtle: rgba(255, 255, 255, 0.02); /* hero bg number */
+  --color-title:    #E6EDF3;                  /* h1 / hero name / section heading */
+  --color-subtitle: #8B949E;                  /* h2 / card title / sub-heading */
+  --color-body:     #8B949E;                  /* paragraphs / bio text */
+  --color-label:    #8B949E;                  /* uppercase caps labels / tags */
+  --color-muted:    rgba(139, 148, 158, 0.35); /* watermarks / meta / hints */
+  --color-on-dark:  #8B949E;                  /* scroll text / status text */
+  --color-bg-subtle: rgba(139, 148, 158, 0.02); /* hero bg number */
   --text-gradient: linear-gradient(to bottom, var(--white) 20%, var(--white-40) 100%);
   --transparent: transparent;
 
@@ -139,41 +152,41 @@
   --black-90: rgba(0, 0, 0, 0.9);
   --black-95: rgba(0, 0, 0, 0.95);
 
-  /* ── 14. SEMANTIC & UTILITY TOKENS (Monochrome Mapping) ── */
-  --success: var(--white-80);
-  --danger: var(--white-60);
+  /* ── 14. SEMANTIC & UTILITY TOKENS (Tech Mapping) ── */
+  --success: var(--brand);
+  --danger: #F85149; /* GitHub Red */
 
-  --whatsapp-green: var(--white-80);
-  --danger-bg: var(--white-03);
-  --danger-border: var(--white-08);
-  --danger-glow: var(--white-10);
-  --danger-glow-soft: var(--white-05);
+  --whatsapp-green: var(--brand-300);
+  --danger-bg: rgba(248, 81, 73, 0.05);
+  --danger-border: rgba(248, 81, 73, 0.2);
+  --danger-glow: rgba(248, 81, 73, 0.1);
+  --danger-glow-soft: rgba(248, 81, 73, 0.05);
 
-  --warning: var(--white-50);
+  --warning: var(--secondary-accent);
 
-  --blue-accent: var(--white-60);
-  --blue-glow: var(--white-05);
+  --blue-accent: var(--brand-300);
+  --blue-glow: var(--brand-glow-soft);
 
-  --whatsapp-glow: var(--white-03);
-  --whatsapp-glow-strong: var(--white-10);
+  --whatsapp-glow: var(--brand-glow-soft);
+  --whatsapp-glow-strong: var(--brand-glow);
 
   /* Contact Form & Neutral Utilities */
-  --form-input-bg: var(--white-02);
-  --form-input-border: var(--white-08);
-  --form-label: var(--white-45);
-  --form-divider: var(--white-06);
-  --form-bg-light: var(--white-03);
-  --form-text-muted: var(--white-35);
+  --form-input-bg: var(--bg-surface);
+  --form-input-border: var(--border-subtle);
+  --form-label: var(--text-secondary);
+  --form-divider: var(--border-subtle);
+  --form-bg-light: var(--bg-elevated);
+  --form-text-muted: var(--text-muted);
   
-  /* ── 15. COMPONENT-SPECIFIC TOKENS (New Centralized Approach) ── */
+  /* ── 15. COMPONENT-SPECIFIC TOKENS ── */
   --clock-face-bg: transparent;
-  --clock-face-border: var(--white-08);
-  --clock-hand-hour: var(--white-90);
-  --clock-hand-min: var(--white-60);
-  --clock-hand-sec: #ffffff;
-  --clock-marker-default: var(--white-15);
-  --clock-marker-prominent: var(--white-30);
-  --clock-pin-bg: var(--white);
+  --clock-face-border: var(--border-subtle);
+  --clock-hand-hour: var(--text-primary);
+  --clock-hand-min: var(--text-secondary);
+  --clock-hand-sec: var(--brand);
+  --clock-marker-default: var(--border-subtle);
+  --clock-marker-prominent: var(--brand);
+  --clock-pin-bg: var(--brand);
   
   --ui-scanline-opacity: 0;
   --ui-scanline-color: var(--white-15);

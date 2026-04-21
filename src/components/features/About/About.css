@@ -3,8 +3,6 @@
    Focus: Refraction, Depth, and Premium Glassmorphism
    ===================================================== */
 
-/* Global standards now defined in style.css */
-@import "../../../styles/globals.css";
 
 .about-layout {
   justify-content: center !important;
@@ -196,7 +194,7 @@
 .about-bento-grid .cta-card {
   grid-column: 1 / 4;
   grid-row: 3 / 4;
-  background: var(--cta-card-gradient) !important;
+  background: transparent !important;
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;

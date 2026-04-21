@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { usePortfolio } from "@/components/shared/providers/AppProvider";
 import { LuDatabase, LuLayers, LuSmartphone, LuCode } from "react-icons/lu";
+import { useLiquidGlass } from "@/lib/hooks/useLiquidGlass";
 import "./TechStack.css";
 
 const EngineIcons: Record<string, any> = { LuCode, LuDatabase, LuSmartphone, LuLayers };
@@ -10,6 +11,7 @@ const TechStack = () => {
   const { data } = usePortfolio();
   const tech = data?.tech || {};
   const { engine = [], career = [], techStack = {}, ui = {} } = tech;
+  const { handleMouseMove } = useLiquidGlass();
 
   const sectionLabel = ui.sectionLabel;
   const engineTitle = ui.engineTitle;
@@ -58,6 +60,7 @@ const TechStack = () => {
                   key={`engine-${i}`}
                   className={`glass-card bento-card bento-compact engine-bento-card rich-glass ${gridClass}`}
                   variants={itemVariants}
+                  onMouseMove={handleMouseMove}
                 >
                   <div className="bento-icon-wrapper icon-sm">
                     <Icon />
@@ -72,6 +75,7 @@ const TechStack = () => {
             <motion.div 
                 className="glass-card bento-card tech-evolution-card rich-glass" 
                 variants={itemVariants}
+                onMouseMove={handleMouseMove}
             >
               <h2 className="card-primary-title title-secondary">{evolutionTitle}</h2>
               <div className="evolution-timeline">
@@ -96,6 +100,7 @@ const TechStack = () => {
             <motion.div 
                 className="glass-card bento-card tech-stack-card rich-glass" 
                 variants={itemVariants}
+                onMouseMove={handleMouseMove}
             >
               <h2 className="card-primary-title title-secondary">{coreStackTitle}</h2>
               <div className="core-stack-circles">
@@ -114,6 +119,7 @@ const TechStack = () => {
             <motion.div 
                 className="glass-card bento-card tech-collab-card rich-glass" 
                 variants={itemVariants}
+                onMouseMove={handleMouseMove}
             >
               <h2 className="card-primary-title title-secondary">{toolsTitle}</h2>
               <div className="collab-tags-cloud">

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { usePortfolio } from "@/components/shared/providers/AppProvider";
 import { LuRocket, LuMonitor } from "react-icons/lu";
+import { useLiquidGlass } from "@/lib/hooks/useLiquidGlass";
 import "./About.css";
 
 const About = () => {
@@ -9,6 +10,7 @@ const About = () => {
   const about = data?.about || {};
   const stats = about.stats || {};
   const ui = about.ui || {};
+  const { handleMouseMove } = useLiquidGlass();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,6 +50,7 @@ const About = () => {
             <motion.div
               className="glass-card bento-card vision-card rich-glass"
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
               <div className="vision-content">
                 <h1 className="about-vision-title title-primary">
@@ -69,6 +72,7 @@ const About = () => {
             <motion.div
               className="glass-card bento-card asset-card rich-glass"
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
               <img src={about.assetImage || "/about_glass_asset_1775242048912.png"} className="bento-asset-img" alt={about.assetTitle} />
               <div className="asset-overlay">
@@ -81,6 +85,7 @@ const About = () => {
             <motion.div
               className="glass-card bento-card proj-hero-card rich-glass"
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
               <div className="card-inner-center">
                 <div className="bento-icon-wrapper">
@@ -95,6 +100,7 @@ const About = () => {
             <motion.div
               className="glass-card bento-card exp-hero-card rich-glass"
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
               <div className="card-inner-center">
                 <div className="bento-icon-wrapper">
@@ -109,6 +115,7 @@ const About = () => {
             <motion.div
               className="glass-card bento-card loc-card rich-glass"
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
               <div className="card-inner-center loc-content">
                 <span className="bento-label-sub text-label">{ui.locSubLabel || "CURRENT ORBIT"}</span>
@@ -126,6 +133,7 @@ const About = () => {
             <motion.div
               className="bento-card rich-glass cta-card"
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
               <div className="cta-left">
                 <h2 className="cta-title title-secondary">{about.ctaTitle} <em className="italic-accent">{about.ctaAccent}</em></h2>

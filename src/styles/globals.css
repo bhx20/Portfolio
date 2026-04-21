@@ -5,14 +5,14 @@
    ========================================================================== */
 
 /* ── 1. Design Tokens ── */
-  @import "./core/colors.css";
-  @import "./core/typography.css";
-  @import "./core/dimensions.css";
-  @import "./core/decoration.css";
-  @import "./core/animations.css";
-  @import "./core/effects.css";
-  @import "./core/z-index.css";
-  @import "./core/utils.css";
+@import "./core/colors.css";
+@import "./core/typography.css";
+@import "./core/dimensions.css";
+@import "./core/decoration.css";
+@import "./core/animations.css";
+@import "./core/effects.css";
+@import "./core/z-index.css";
+@import "./core/utils.css";
 
 /* ── 2. Core Layout & Global Architecture ── */
 @import "./layout/main.css";
@@ -34,7 +34,7 @@ body {
   /* ── SINGLE SOURCE OF TRUTH: All page background colors come from here. ──
      Never set background-color on individual page containers.
      Change --background in theme/colors.css to update globally. */
-  background-color: var(--background);
+  background-color: transparent; /* Show gold nebula in ::after */
   /* Text color inherits from --color-body in theme/typography.css */
   color: var(--color-body);
   font-family: var(--font-main);
@@ -43,18 +43,39 @@ body {
   position: relative;
 }
 
-/* Cinematic Atmospheric Texture Overlay */
+/* Cinematic Atmospheric Texture & Ambient Glows */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
-  /* background-image: url(...); */
-  opacity: 0.035;
+  /* Noise Texture Data URI (SVG noise) */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: var(--bg-grain-opacity);
   pointer-events: none;
   z-index: var(--z-nav);
-  mix-blend-mode: overlay;
+  /* Sits above everything for consistency */
+  mix-blend-mode: soft-light;
+}
+
+/* Ambient Background Blobs (The Nebula) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 15% 25%, var(--bg-nebula-1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, var(--bg-nebula-2) 0%, transparent 45%),
+    var(--bg-dark);
+  /* Solid brand base */
+  pointer-events: none;
+  z-index: var(--z-behind);
+  /* Sits behind everything */
+  filter: blur(100px);
+  /* Tech-blue/purple aura */
 }
 
 /* ==========================================================================
@@ -83,8 +104,9 @@ body::before {
   border-color: var(--primary);
 }
 
+
 /* ── Reusable Glass Panel ── */
-/* ── Centralized Bento Aesthetics ── */
+/* ── Centralized Bento Aesthetics (Liquid Glass v2) ── */
 .bento-card {
   position: relative;
   overflow: hidden;
@@ -94,12 +116,40 @@ body::before {
   flex-direction: column;
   justify-content: flex-start;
   transition: all 0.6s var(--ease-premium);
-  background: var(--bento-bg) !important;
+  background: transparent !important;
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: var(--card-border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
+  transform-style: preserve-3d;
+  perspective: var(--depth-xl);
+}
+
+/* Liquid Interactive Shine */
+.bento-card::before,
+.rich-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--glass-shine);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-premium);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Refraction Highlight */
+.bento-card::after,
+.rich-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--glass-refraction);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.5s var(--ease-premium);
 }
 
 .bento-card:hover {
@@ -108,8 +158,14 @@ body::before {
   box-shadow: var(--shadow-xl);
 }
 
-.bento-compact {
-  /* Compact override removed to allow global padding. */
+.bento-card:hover::before,
+.rich-glass:hover::before {
+  opacity: 1;
+}
+
+.bento-card:hover::after,
+.rich-glass:hover::after {
+  opacity: 0.4;
 }
 
 /* ── The 'Rich Glass' Signature Look ── */
@@ -118,8 +174,6 @@ body::before {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: var(--card-border);
-  border-top: var(--size-line-thin) solid var(--white-15);
-  border-left: var(--size-line-thin) solid var(--white-10);
   border-radius: var(--radius-xl);
   overflow: hidden;
   min-height: 0;
@@ -129,47 +183,14 @@ body::before {
   flex-direction: column;
   justify-content: center;
   transform-style: preserve-3d;
-  perspective: var(--depth-xl); /* Centralized depth token */
+  perspective: var(--depth-xl);
   box-shadow: var(--shadow-lg);
-}
-
-/* Primary Refraction Layer */
-.rich-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--transparent);
-  pointer-events: none;
-  z-index: var(--z-default);
-  border-radius: inherit;
-  transition: opacity 0.6s var(--ease-premium);
-}
-
-/* Secondary Gloss Sweep */
-.rich-glass::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: var(--transparent);
-  opacity: 0;
-  overflow: hidden;
-  transition: var(--transition-premium);
-  pointer-events: auto;
-  z-index: 2;
 }
 
 .rich-glass:hover {
   border-color: var(--glass-border-strong);
   transform: var(--effect-card-hover);
   box-shadow: var(--shadow-xl);
-}
-
-.rich-glass:hover::after {
-  opacity: 1;
-  transform: translate(10%, 10%);
 }
 
 /* ── Centralized Bento Icon System ── */
@@ -262,14 +283,18 @@ body::before {
 }
 
 
-@media (max-width: var(--bp-tablet-val)) { /* Reference: var(--bp-tablet) */
+@media (max-width: var(--bp-tablet-val)) {
+
+  /* Reference: var(--bp-tablet) */
   :root {
     --floating-ui-offset: var(--space-lg);
     --bento-inner-padding: var(--space-lg);
   }
 }
 
-@media (max-width: var(--bp-mobile-val)) { /* Reference: var(--bp-mobile) */
+@media (max-width: var(--bp-mobile-val)) {
+
+  /* Reference: var(--bp-mobile) */
   :root {
     --floating-ui-offset: var(--space-md);
     --bento-inner-padding: var(--space-md);

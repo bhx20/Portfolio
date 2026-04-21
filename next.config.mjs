@@ -16,8 +16,7 @@ const nextConfig = {
       }
     ],
   },
-  // Since we use Three.js and GSAP, ensure they are handled properly
-  transpilePackages: ["three", "gsap"],
+  // transpilePackages removed — three.js dependency dropped
   async rewrites() {
     return [
       { source: "/hero", destination: "/" },

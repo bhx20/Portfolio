@@ -15,12 +15,14 @@ import {
 } from "react-icons/lu";
 import { FaWhatsapp, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
+import { useLiquidGlass } from "@/lib/hooks/useLiquidGlass";
 import "./Contact.css";
 
 const Contact = () => {
   const { data } = usePortfolio();
   const contact = data?.contact || {};
   const ui = contact.ui || {};
+  const { handleMouseMove } = useLiquidGlass();
 
   const [showForm, setShowForm] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
@@ -136,6 +138,7 @@ const Contact = () => {
             <motion.div
               className={`glass-card bento-card rich-glass contact-hero-card ${showForm ? "form-active" : ""}`}
               variants={itemVariants}
+              onMouseMove={handleMouseMove}
             >
 
               {!showForm ? (
@@ -308,7 +311,11 @@ const Contact = () => {
             </motion.div>
 
             <div className="contact-top-cards">
-              <motion.div className="glass-card bento-card bento-compact rich-glass contact-info-card clock-card analog-view" variants={itemVariants}>
+              <motion.div 
+                className="glass-card bento-card bento-compact rich-glass contact-info-card clock-card analog-view" 
+                variants={itemVariants}
+                onMouseMove={handleMouseMove}
+              >
                 <div className="clock-scanline" />
 
                 <div className="analog-clock-wrapper">
@@ -335,6 +342,7 @@ const Contact = () => {
                 rel="noreferrer"
                 className="glass-card bento-card bento-compact rich-glass contact-info-card whatsapp-card-premium"
                 variants={itemVariants}
+                onMouseMove={handleMouseMove}
               >
                 <div className="whatsapp-aura" />
                 <div className="bento-icon-wrapper">
@@ -371,6 +379,7 @@ const Contact = () => {
                     rel="noreferrer"
                     className="glass-card bento-card bento-compact rich-glass openfor-item social-link-tile"
                     variants={itemVariants}
+                    onMouseMove={handleMouseMove}
                   >
                     <div className="openfor-scanline" />
                     <div className="bento-icon-wrapper icon-sm">

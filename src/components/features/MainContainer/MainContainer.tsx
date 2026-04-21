@@ -9,6 +9,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+// @ts-ignore - GSAP type casing conflict on Windows
 import { Observer } from "gsap/Observer";
 
 // ── Feature Components ──
@@ -19,7 +20,6 @@ import TechStack from "../TechStack/TechStack";
 import Contact from "../Contact/Contact";
 
 // ── Shared UI ──
-import Cursor from "../../shared/Cursor/Cursor";
 import SocialPile from "../../shared/SocialPile/SocialPile";
 import CommunityWidget from "../../shared/CommunityWidget/CommunityWidget";
 
@@ -163,7 +163,6 @@ const MainContainer = () => {
       )}
 
       {/* Persistent UI */}
-      <Cursor />
       <SocialPile />
       <CommunityWidget />
 
