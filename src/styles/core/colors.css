@@ -1,0 +1,191 @@
+/* ==========================================================================
+   NEUTRAL TAHOE DESIGN SYSTEM (Monochrome/Frosted)
+   Clean • Premium • Apple-Inspired
+   ========================================================================== */
+
+:root {
+  /* ── 1. BRAND BASE (Neutralized) ── */
+  --brand: #ffffff;
+  --brand-rgb: 255, 255, 255;
+
+  /* ── 2. BRAND SCALE (Neutral Grays) ── */
+  --brand-50: #fafafa;
+  --brand-100: #f5f5f5;
+  --brand-200: #e5e5e5;
+  --brand-300: #d4d4d4;
+  --brand-400: #a3a3a3;
+  --brand-500: #737373;
+  --brand-600: #525252;
+  --brand-700: #404040;
+  --brand-800: #262626;
+  --brand-900: #171717;
+
+  /* ── 4. GLOW SYSTEM (Neutralized) ── */
+  --brand-glow-soft: rgba(255, 255, 255, 0.05);
+  --brand-glow: rgba(255, 255, 255, 0.12);
+  --brand-glow-strong: rgba(255, 255, 255, 0.25);
+
+  /* ── 5. TEXT ON BRAND ── */
+  --on-brand: #000000;
+  --on-brand-muted: rgba(0, 0, 0, 0.6);
+
+  /* ── 6. BACKGROUND SYSTEM (Deep Black) ── */
+  --bg-dark: #000000;
+  --bg-surface: #050505;
+  --bg-elevated: #0a0a0a;
+
+  /* ── 7. GLASS SYSTEM ── */
+  /* Moved to decoration.css */
+  --glass-bg: transparent;
+  --glass-bg-hover: rgba(255, 255, 255, 0.02);
+
+  /* ── Bento Card Base (Transparent Tahoe — Apple Tahoe) ── */
+  --bento-bg: transparent;
+
+  /* ── Particle System Color (read by ParticleBackground.tsx via getComputedStyle) ── */
+  --particle-color: #ffffff;
+
+  /* ── 8. BORDER SYSTEM ── */
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+
+  /* ── 9. TEXT SYSTEM ── */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.40);
+  --text-disabled: rgba(255, 255, 255, 0.20);
+  
+  /* Semantic Text Color Tokens */
+  --color-title:    #ffffff;                  /* h1 / hero name / section heading */
+  --color-subtitle: rgba(255, 255, 255, 0.70); /* h2 / card title / sub-heading */
+  --color-body:     rgba(255, 255, 255, 0.65); /* paragraphs / bio text */
+  --color-label:    rgba(255, 255, 255, 0.45); /* uppercase caps labels / tags */
+  --color-muted:    rgba(255, 255, 255, 0.35); /* watermarks / meta / hints */
+  --color-on-dark:  rgba(255, 255, 255, 0.50); /* scroll text / status text */
+  --color-bg-subtle: rgba(255, 255, 255, 0.02); /* hero bg number */
+  --text-gradient: linear-gradient(to bottom, var(--white) 20%, var(--white-40) 100%);
+  --transparent: transparent;
+
+  /* ── 10. STATE SYSTEM ── */
+  --state-hover: rgba(255, 255, 255, 0.05);
+  --state-active: rgba(255, 255, 255, 0.08);
+  --state-focus: rgba(255, 255, 255, 0.12);
+
+  /* ── 11. ELEVATION SYSTEM ── */
+  /* Moved to decoration.css */
+
+  /* ── 12. COMPONENT TOKENS ── */
+  --button-bg: var(--white);
+  --button-hover: var(--white-90);
+  --button-active: var(--white-80);
+  --button-text: var(--black);
+
+  --card-bg: var(--glass-bg);
+  /* Card border and shadow moved to decoration.css */
+
+  /* ── 13. COMPATIBILITY MAPPING ── */
+  --background: var(--bg-dark);
+  --foreground: var(--text-primary);
+  --white: #ffffff;
+  --black: #000000;
+  --primary: var(--white);
+  --primary-light: var(--white-80);
+  --primary-glow: var(--white-10);
+  --primary-glow-soft: var(--white-05);
+  --secondary: var(--white-60);
+  --secondary-glow: var(--white-03);
+  --accent: var(--white-40);
+  --accent-glow: var(--white-02);
+  --accent-muted: var(--white-02);
+  --dark-muted: var(--bg-surface);
+  --muted: var(--text-muted);
+  --border: var(--border-subtle);
+
+  /* Glass Transitions moved to decoration.css */
+
+  /* Transparency Ladders */
+  --white-01: rgba(255, 255, 255, 0.01);
+  --white-02: rgba(255, 255, 255, 0.02);
+  --white-03: rgba(255, 255, 255, 0.03);
+  --white-04: rgba(255, 255, 255, 0.04);
+  --white-05: rgba(255, 255, 255, 0.05);
+  --white-06: rgba(255, 255, 255, 0.06);
+  --white-08: rgba(255, 255, 255, 0.08);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-12: rgba(255, 255, 255, 0.12);
+  --white-15: rgba(255, 255, 255, 0.15);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-25: rgba(255, 255, 255, 0.25);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-35: rgba(255, 255, 255, 0.35);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-45: rgba(255, 255, 255, 0.45);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-65: rgba(255, 255, 255, 0.65);
+  --white-70: rgba(255, 255, 255, 0.7);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-90: rgba(255, 255, 255, 0.9);
+
+  --black-10: rgba(0, 0, 0, 0.1);
+  --black-20: rgba(0, 0, 0, 0.2);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --black-50: rgba(0, 0, 0, 0.5);
+  --black-60: rgba(0, 0, 0, 0.6);
+  --black-70: rgba(0, 0, 0, 0.7);
+  --black-80: rgba(0, 0, 0, 0.8);
+  --black-90: rgba(0, 0, 0, 0.9);
+  --black-95: rgba(0, 0, 0, 0.95);
+
+  /* ── 14. SEMANTIC & UTILITY TOKENS (Monochrome Mapping) ── */
+  --success: var(--white-80);
+  --danger: var(--white-60);
+
+  --whatsapp-green: var(--white-80);
+  --danger-bg: var(--white-03);
+  --danger-border: var(--white-08);
+  --danger-glow: var(--white-10);
+  --danger-glow-soft: var(--white-05);
+
+  --warning: var(--white-50);
+
+  --blue-accent: var(--white-60);
+  --blue-glow: var(--white-05);
+
+  --whatsapp-glow: var(--white-03);
+  --whatsapp-glow-strong: var(--white-10);
+
+  /* Contact Form & Neutral Utilities */
+  --form-input-bg: var(--white-02);
+  --form-input-border: var(--white-08);
+  --form-label: var(--white-45);
+  --form-divider: var(--white-06);
+  --form-bg-light: var(--white-03);
+  --form-text-muted: var(--white-35);
+  
+  /* ── 15. COMPONENT-SPECIFIC TOKENS (New Centralized Approach) ── */
+  --clock-face-bg: transparent;
+  --clock-face-border: var(--white-08);
+  --clock-hand-hour: var(--white-90);
+  --clock-hand-min: var(--white-60);
+  --clock-hand-sec: #ffffff;
+  --clock-marker-default: var(--white-15);
+  --clock-marker-prominent: var(--white-30);
+  --clock-pin-bg: var(--white);
+  
+  --ui-scanline-opacity: 0;
+  --ui-scanline-color: var(--white-15);
+
+  /* ── 15. SECTION SPECIFIC GRADIENTS ── */
+  --cta-card-gradient: linear-gradient(135deg,
+      var(--white-05) 0%,
+      var(--white-02) 50%,
+      transparent 100%);
+  --vision-line-gradient: linear-gradient(90deg, var(--white-15) 0%, transparent 100%);
+  --product-shine-gradient: linear-gradient(135deg, var(--white-05) 0%, transparent 40%, transparent 100%);
+  --product-aura-radial: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 60%);
+}

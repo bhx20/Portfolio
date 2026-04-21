@@ -1,0 +1,27 @@
+@import "../../../styles/globals.css";
+
+.cursor-main {
+  --size: var(--space-lg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  background-color: var(--primary);
+  box-shadow: 0 0 var(--space-lg) 0 var(--primary-glow);
+  mix-blend-mode: difference;
+  transition: width var(--duration-fast) var(--ease-premium),
+    height var(--duration-fast) var(--ease-premium),
+    background-color var(--duration-normal) ease;
+}
+
+.cursor-disable {
+  --size: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Base styles only. Responsive overrides moved to centralized breakpoint files */

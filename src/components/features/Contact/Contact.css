@@ -1,0 +1,1238 @@
+/* =====================================================
+   CINEMATIC CONTACT BENTO — Section 04
+   ===================================================== */
+
+@import "../../../styles/globals.css";
+
+.contact-layout {
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100%;
+  height: 100%;
+  /* Match global section vertical alignment */
+  padding: 0;
+}
+
+/* ── Grid ─────────────────────────────────────────── */
+.contact-bento-grid {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-rows: auto 1fr;
+  gap: var(--bento-gap);
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  justify-items: stretch;
+  box-sizing: border-box;
+}
+
+/* ── Area Assignments ─────────────────────────────── */
+.contact-hero-card {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.contact-top-cards {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  gap: var(--space-md);
+  /* Matches grid gap */
+  min-width: 0;
+  width: 100%;
+}
+
+.contact-top-cards .contact-info-card {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  /* Force 1:1 for both top cards */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.contact-social-grid {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  min-width: 0;
+}
+
+
+/* ── Hero Card ────────────────────────────────────── */
+.contact-hero-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+  position: relative;
+  overflow: hidden;
+  /* background/border handled by global rich-glass */
+  transition: all 0.6s var(--ease-premium);
+}
+
+.contact-hero-card:hover {
+  border-color: var(--white-20);
+  border-color: var(--border-hover);
+}
+
+.contact-card-decorator {
+  position: absolute;
+  font-family: var(--font-main);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.contact-card-decorator.top-right {
+  top: var(--space-base);
+  right: var(--space-base);
+}
+
+.contact-card-decorator.bottom-left {
+  bottom: var(--space-base);
+  left: var(--space-base);
+}
+
+.hero-data-stream {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--primary-glow-soft) var(--size-line-thin), var(--transparent) var(--size-line-thin)),
+    linear-gradient(90deg, var(--primary-glow-soft) var(--size-line-thin), var(--transparent) var(--size-line-thin));
+  background-size: var(--size-24) var(--size-24);
+  mask-image: radial-gradient(circle at top right, var(--black), var(--transparent) 70%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-data-stream::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--transparent), var(--primary-glow-soft), var(--transparent));
+  background-size: 100% 400%;
+  animation: scanline 12s linear infinite;
+}
+
+
+/* Large decorative background number */
+.contact-hero-card::after {
+  content: '@';
+  position: absolute;
+  bottom: calc(-1 * var(--space-lg));
+  right: calc(-1 * var(--space-sm));
+  font-size: var(--fs-mega);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-none);
+  color: var(--color-bg-subtle);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  font-family: inherit;
+}
+
+.contact-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5xs);
+  background: var(--transparent);
+  border: var(--border-thin);
+  border-radius: var(--radius-full);
+  padding: var(--space-3xs) var(--space-sm);
+  width: fit-content;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-title);
+}
+
+.status-dot {
+  width: var(--size-dot-7);
+  height: var(--size-dot-7);
+  background: var(--color-title);
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+
+.contact-hero-body {
+  display: flex;
+  flex-direction: row;
+  /* Split Layout */
+  gap: var(--space-xl);
+  flex: 1;
+}
+
+.hero-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+  flex: 1.5;
+}
+
+.hero-side-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+  padding-left: var(--space-lg);
+  border-left: var(--border-thin);
+  /* Sharper vertical line */
+}
+
+.contact-hero-eyebrow {
+  /* Using centralized .text-label */
+  margin-bottom: calc(-1 * var(--space-3xs));
+}
+
+.contact-hero-title {
+  /* Using centralized .title-primary now */
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
+  margin-bottom: var(--space-base);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.contact-hero-sub {
+  /* Using centralized .text-body now */
+  max-width: 35ch;
+}
+
+.contact-meta-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background: var(--transparent);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xs) var(--space-base);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-label);
+  transition: all 0.3s ease;
+}
+
+.contact-meta-chip:hover {
+  border: var(--size-line-thin) solid var(--border-hover);
+  color: var(--color-title);
+  border-color: var(--border-hover);
+}
+
+.contact-email-cta {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-md) !important;
+  background: var(--bg-card-hover) !important;
+  border: var(--border-thin) !important;
+  border-radius: var(--radius-md) !important;
+  padding: var(--space-base) var(--space-lg) !important;
+  margin-top: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-premium);
+  min-width: 0;
+}
+
+.contact-email-cta:hover {
+  background: var(--bg-glass-active) !important;
+  border-color: var(--border-hover) !important;
+  transform: var(--hover-lift-sm);
+  box-shadow: 0 var(--size-dot-lg) var(--space-lg) var(--shadow-deep);
+}
+
+.cta-email-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-black);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  color: var(--color-label);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cta-email-address {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--color-title);
+  min-width: 0;
+  /* Critical for flex child ellipsis */
+  flex: 1;
+  /* Take up remaining space */
+}
+
+.email-text-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.contact-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: var(--space-xs);
+  border-top: var(--border-thin);
+  margin-top: var(--space-2xs);
+}
+
+.contact-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-normal);
+  color: var(--color-label);
+  text-transform: uppercase;
+}
+
+.contact-meta-dot {
+  width: var(--size-dot-md);
+  height: var(--size-dot-md);
+  border-radius: 50%;
+  background: var(--color-muted);
+}
+
+.contact-email-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--transparent);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  .toast-message {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-title) !important;
+}  width: 100%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 var(--size-dot-sm) var(--size-dot-xl) var(--shadow-base);
+}
+
+.contact-email-cta:hover .cta-arrow {
+  transform: rotate(-45deg) scale(1.2);
+  color: var(--color-title);
+}
+
+.cta-arrow {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-md);
+  color: var(--color-body);
+  transition: transform 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.contact-email-cta:hover .cta-arrow {
+  transform: translate(var(--size-line-normal), calc(-1 * var(--size-line-normal)));
+  color: var(--color-title);
+}
+
+.portfolio-global-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-xl);
+  margin-top: auto;
+}
+
+.contact-footer-copy {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* ── Small Info Cards ─────────────────────────────── */
+/* ── Perfect Square Restoration (Master Parity) ── */
+#contact .contact-info-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+  gap: var(--space-sm);
+  padding: var(--bento-inner-padding) !important;
+  position: relative;
+  text-decoration: none;
+  min-height: var(--size-160); /* Closest to 180px */
+}
+
+
+
+#contact .loc-card {
+  justify-self: flex-start !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+#contact .whatsapp-card {
+  justify-self: flex-end !important;
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+#contact .contact-social-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--bento-gap) !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+#contact .contact-info-card:hover {
+  /* Retain specific lift on top of standard hover */
+  transform: var(--hover-lift-lg) var(--hover-scale-sm);
+}
+
+/* CV & WhatsApp Card specific */
+.cv-card:hover .contact-info-icon-wrap {
+  color: var(--color-title);
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 0 var(--space-lg) var(--shadow-subtle);
+}
+
+.whatsapp-card-premium {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.whatsapp-aura {
+  position: absolute;
+  width: var(--size-120);
+  height: var(--size-120);
+  background: radial-gradient(circle, var(--whatsapp-glow) 0%, var(--transparent) 70%);
+  border-radius: 50%;
+  filter: blur(var(--size-20));
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.6s var(--ease-premium);
+}
+
+.whatsapp-icon-wrapper {
+  /* Using centralized .bento-icon-wrapper now */
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: inherit;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  margin-bottom: inherit;
+}
+
+.wa-bottom-row {
+  position: absolute;
+  bottom: var(--space-base);
+  left: var(--space-base);
+  right: var(--space-base);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.wa-status-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  padding: var(--space-4xs) var(--space-2xs);
+  background: var(--transparent);
+  border: var(--border-thin);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-label);
+}
+
+.wa-dot {
+  width: var(--size-dot-md);
+  height: var(--size-dot-md);
+  background: var(--color-title);
+  border-radius: 50%;
+  box-shadow: none;
+  animation: wa-pulse 2s infinite;
+}
+
+
+.wa-action-arrow {
+  font-size: var(--fs-md);
+  color: var(--color-muted);
+  transition: all 0.4s ease;
+}
+
+/* ── Hover State ── */
+.whatsapp-card-premium:hover {
+  border-color: var(--whatsapp-glow-strong) !important;
+}
+
+.whatsapp-card-premium:hover .whatsapp-aura {
+  transform: scale(1.5);
+  background: radial-gradient(circle, var(--whatsapp-glow-strong) 0%, var(--transparent) 70%);
+}
+
+.whatsapp-card-premium:hover .whatsapp-icon-wrapper {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 var(--space-xl) var(--whatsapp-glow-strong));
+}
+
+.whatsapp-card-premium:hover .wa-action-arrow {
+  color: var(--color-title);
+  transform: translateX(var(--size-dot-sm));
+}
+
+.contact-info-icon-wrap {
+  /* Using centralized .bento-icon-wrapper now */
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: inherit;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  margin-bottom: var(--space-2xs);
+  color: inherit;
+}
+
+.contact-info-card:hover .contact-info-icon-wrap {
+  background: var(--brand-glow);
+  border-color: var(--brand);
+  transform: scale(1.08);
+}
+
+.contact-info-label {
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  /* Synced Tracking */
+  text-transform: uppercase;
+  color: var(--color-label);
+  margin-bottom: var(--space-2xs);
+  position: relative;
+  z-index: 2;
+}
+
+.contact-info-value {
+  font-size: var(--fs-base);
+  /* Slightly larger for clarity */
+  font-weight: var(--fw-extrabold);
+  color: var(--color-title);
+  letter-spacing: var(--ls-tight);
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-2xs);
+}
+
+.contact-info-badge {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-normal);
+  padding: var(--space-3-5xs) var(--space-xs);
+  background: var(--brand-glow-soft);
+  border: var(--border-brand);
+  border-radius: var(--radius-sm);
+  color: var(--brand-300);
+  position: relative;
+  z-index: 2;
+  animation: border-shimmer 5s infinite ease-in-out;
+}
+
+/* ── Social Tiles Hub (Bento 2.0) ───────────────── */
+.contact-social-grid {
+  height: 100%;
+}
+
+.social-link-tile {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: var(--space-md) !important;
+  text-decoration: none !important;
+  color: var(--color-title) !important;
+  height: auto !important;
+  /* Fix excessive height */
+}
+
+.social-link-tile:hover {
+  /* Inherit global bento hover from style.css */
+}
+
+.openfor-icon {
+  /* Using centralized .bento-icon-wrapper now */
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: inherit;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  color: inherit;
+}
+
+.social-link-tile:hover .openfor-icon {
+  background: var(--primary-light);
+  color: var(--dark-muted);
+  box-shadow: 0 0 var(--space-md) var(--primary-glow);
+}
+
+.openfor-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--unit-0-1);
+  flex: 1;
+}
+
+.openfor-label {
+  /* Using centralized .title-card now */
+  text-transform: capitalize;
+}
+
+.openfor-sub {
+  /* Using centralized .text-body now */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.item-launcher-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  background: var(--primary-glow-soft);
+  border: var(--size-line-thin) solid var(--primary-glow);
+  border-radius: var(--radius-sm);
+  font-size: var(--unit-1);
+  color: var(--primary-glow);
+  margin-left: auto;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.social-link-tile:hover .item-launcher-wrap {
+  background: var(--border-hover);
+  color: var(--color-title);
+  border-color: var(--border-hover);
+  transform: translate(var(--size-line-normal), calc(-1 * var(--size-line-normal)));
+}
+
+/* ── Open For & Connect Hub ─────────────────────── */
+.contact-openfor-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.openfor-hub-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.openfor-column {
+  width: 100%;
+  max-width: var(--size-500);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+}
+
+.openfor-column .cv-link-group-title {
+  font-size: var(--unit-0-6);
+  font-weight: 800;
+  color: var(--color-muted);
+  letter-spacing: 0.15em;
+  color: var(--primary-light);
+  margin-bottom: var(--space-2xs);
+  opacity: 0.7;
+}
+
+.openfor-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.openfor-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: var(--space-sm) !important;
+  text-decoration: none !important;
+  height: auto !important;
+  /* Fix excessive height */
+}
+
+.openfor-item:hover {
+  /* Inherit global bento hover from style.css */
+}
+
+.openfor-scanline {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--primary-glow-soft),
+      transparent);
+  transition: 0.6s;
+}
+
+.openfor-item:hover .openfor-scanline {
+  left: 100%;
+}
+
+.openfor-icon {
+  width: var(--logo-size-md);
+  height: var(--logo-size-md);
+  min-width: var(--logo-size-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-md);
+  color: var(--primary-light);
+  background: var(--primary-glow-soft);
+  border-radius: var(--radius-sm);
+  border: var(--size-line-thin) solid var(--primary-glow);
+  transition: all var(--duration-normal) ease;
+}
+
+.openfor-item:hover .openfor-icon {
+  background: var(--primary-light);
+  color: var(--dark-muted);
+}
+
+.openfor-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--unit-0-1);
+  flex: 1;
+}
+
+/* Handled above for consistency */
+
+.item-launcher-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  background: var(--primary-glow-soft);
+  border: var(--size-line-thin) solid var(--primary-glow);
+  border-radius: var(--radius-xs);
+  font-size: var(--unit-1);
+  color: var(--primary-glow);
+  margin-left: auto;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.openfor-item:hover .connect-btn:hover {
+  background: var(--brand-glow);
+  color: var(--color-title);
+  border-color: var(--border-hover);
+  transform: translate(var(--size-line-thick), calc(-1 * var(--size-line-thick)));
+  box-shadow: 0 0 var(--space-md) var(--shadow-subtle);
+}
+
+.resume-link-item {
+  border: var(--size-line-thin) dashed var(--primary-glow);
+  background: var(--primary-glow-soft);
+}
+
+.resume-link-item:hover {
+  border-style: solid;
+  border-color: var(--primary-light);
+}
+
+/* ── Eye-Catching Form V3 (Deep Refraction) ── */
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding: var(--space-md);
+  height: 100%;
+}
+
+.form-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: var(--unit-0-5);
+}
+
+.form-title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-tight);
+  background: linear-gradient(to right, var(--color-title), var(--color-label));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--transparent);
+}
+
+.contact-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--space-md) !important;
+}
+
+.form-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--space-md) !important;
+}
+
+.contact-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-base);
+  font-size: var(--fs-md);
+  color: var(--color-label);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100% !important;
+  background: var(--input-bg) !important;
+  border: var(--size-line-thin) solid var(--border-subtle) !important;
+  border-top: var(--size-line-thin) solid var(--border-light) !important;
+  border-radius: var(--radius-md) !important;
+  padding: var(--space-base) var(--space-md) var(--space-base) var(--space-xl) !important;
+  /* Spacing for icon */
+  color: var(--color-label) !important;
+  animation: slideUpFade 0.3s var(--ease-premium) forwards;
+  font-weight: var(--fw-medium) !important;
+  backdrop-filter: blur(var(--blur-xl)) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(var(--blur-xl)) saturate(180%) !important;
+  transition: all 0.4s var(--ease-premium) !important;
+}
+
+/* Eye-Catching Focus State & Error Handling */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: var(--bg-card-hover) !important;
+  border-color: var(--primary-glow) !important;
+  outline: none !important;
+  box-shadow:
+    0 0 0 var(--size-line-thin) var(--primary-glow),
+    0 var(--space-md) var(--space-4-5) var(--shadow-deep),
+    0 0 var(--space-2xl) var(--primary-glow-soft);
+  /* The Aura Glow */
+  transform: translateY(calc(-1 * var(--unit-0-15) - var(--size-line-thin))); /* -2.5px */
+  /* Restored Lift */
+}
+
+.contact-input-wrapper.error-state input,
+.contact-input-wrapper.error-state textarea {
+  border-color: var(--danger-glow) !important;
+  background: var(--danger-glow-soft) !important;
+}
+
+.contact-input-wrapper.error-state input:focus,
+.contact-input-wrapper.error-state textarea:focus {
+  border-color: var(--danger) !important;
+  animation: pulseError 2s infinite ease-in-out !important;
+  box-shadow:
+    0 0 0 var(--size-line-thin) var(--danger-glow),
+    0 var(--size-dot-lg) var(--space-2xl) var(--shadow-deep),
+    0 0 var(--space-4xl) var(--danger-glow) !important;
+}
+
+.form-close-btn {
+  background: var(--bg-card-hover) !important;
+  border: var(--size-line-thin) solid var(--border-light) !important;
+  border-top: var(--size-line-thin) solid var(--border-subtle) !important;
+  width: var(--logo-size-md);
+  height: var(--logo-size-md);
+  border-radius: 50% !important;
+  color: var(--color-title) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.close-text {
+  display: none !important;
+  /* Total removal */
+}
+
+.close-icon {
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+
+@keyframes pulseError {
+  0% {
+    box-shadow: 0 0 var(--space-2xl) var(--danger-glow-soft);
+  }
+  50% {
+    box-shadow: 0 0 var(--space-4-5) var(--danger-glow);
+  }
+  100% {
+    box-shadow: 0 0 var(--space-2xl) var(--danger-glow-soft);
+  }
+}
+
+.error-message {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-extrabold);
+  color: var(--danger);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-top: var(--space-2xs);
+  margin-left: var(--space-2xs);
+}
+
+.form-submit-btn {
+  width: 100% !important;
+  background: var(--bg-card-hover) !important;
+  border: var(--size-line-thin) solid var(--border-subtle) !important;
+  border-top: var(--size-line-thin) solid var(--border-light) !important;
+  border-radius: var(--space-lg) !important; /* Closest to 18px */
+  padding: var(--space-base) !important;
+  font-size: var(--fs-sm) !important;
+  font-weight: var(--fw-black) !important;
+  letter-spacing: var(--ls-wide) !important;
+  text-transform: uppercase !important;
+  color: var(--color-title) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--space-sm) !important;
+  cursor: pointer !important;
+  transition: all 0.6s var(--ease-premium) !important;
+  overflow: hidden;
+}
+
+.form-submit-btn:hover {
+  transform: translateY(calc(-1 * var(--size-line-normal)));
+  color: var(--color-title) !important;
+  border-color: var(--primary) !important;
+  box-shadow:
+    0 var(--space-lg) var(--space-4xl) var(--shadow-deep),
+    0 0 var(--space-2xl) var(--primary-glow) !important;
+  transform: var(--effect-card-hover);
+}
+
+.form-submit-btn:hover:not(:disabled) .btn-text {
+  letter-spacing: 0.35em !important;
+  /* Premium velocity */
+}
+
+.form-submit-btn:hover:not(:disabled) .btn-arrow {
+  transform: translate(var(--size-line-thick), calc(-1 * var(--size-line-thick))) scale(1.3);
+  color: var(--primary-light);
+}
+
+.btn-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--border-hover),
+      transparent);
+  transition: all 0.6s ease;
+  transform: skewX(-20deg);
+}
+
+.form-submit-btn:hover .btn-shimmer {
+  left: 200%;
+  transition: all 0.8s ease;
+}
+
+@keyframes pulseAura {
+  0% {
+    box-shadow: 0 0 var(--space-3xl) var(--primary-glow-soft);
+  }
+  50% {
+    box-shadow: 0 0 var(--space-4-5) var(--primary-glow);
+  }
+  100% {
+    box-shadow: 0 0 var(--space-3xl) var(--primary-glow-soft);
+  }
+}
+
+.contact-form input:focus {
+  animation: pulseAura 3s infinite ease-in-out;
+}
+
+/* ── Extreme Autofill Purge (Glass Preservation) ── */
+.contact-input:-webkit-autofill {
+  background-color: var(--input-bg) !important;
+  -webkit-box-shadow: 0 0 0 var(--size-1000) var(--input-bg) inset !important;
+  -webkit-text-fill-color: var(--color-title) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  /* Retain glass appearance */
+  caret-color: var(--color-title) !important;
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-success-view {
+  text-align: center;
+  padding: var(--unit-3) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--unit-1-5xs);
+}
+
+.success-icon {
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  background: var(--success-glow);
+  border: var(--size-line-thin) solid var(--success-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-lg);
+  color: var(--success-green);
+}
+
+.input-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--unit-0-85) !important;
+  /* The Breathing Room */
+}
+
+.input-group label {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-extrabold) !important;
+  text-transform: uppercase !important;
+  letter-spacing: var(--ls-wide) !important;
+  color: var(--white-40) !important;
+  padding-left: var(--unit-0-2) !important;
+}
+
+/* ── Live Clock Widget ────────────────────────────── */
+.clock-card {
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  gap: var(--space-1-5xs) !important;
+  padding: var(--unit-1-25) !important;
+}
+
+/* Ambient scanline sweep */
+.clock-scanline {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ui-scanline-color) 0%, var(--transparent) 100%);
+  opacity: var(--ui-scanline-opacity);
+  background-size: 100% 200%;
+  animation: clockScan 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes clockScan {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 200%;
+  }
+}
+
+
+/* ── Classical Analog Clock ─────────────────────── */
+.clock-card.analog-view {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* Centered now that title is gone */
+  padding: var(--unit-1-5xs) !important;
+  aspect-ratio: 1 / 1;
+}
+
+.analog-clock-wrapper {
+  margin: var(--unit-1) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.clock-face {
+  width: var(--space-4xl);
+  height: var(--space-4xl);
+  border-radius: 50%;
+  background: var(--clock-face-bg);
+  border: calc(var(--size-line-thin) * 1.5) solid var(--clock-face-border);
+  /* Subtle face edge */
+  position: relative;
+  box-shadow:
+    inset 0 0 var(--space-md) var(--black-20),
+    0 var(--size-dot-sm) var(--space-md) var(--black-30);
+}
+
+.clock-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--size-line-normal);
+  height: var(--size-dot-md);
+  background: var(--clock-marker-default);
+  margin-left: calc(-1 * var(--size-line-thin));
+  margin-top: calc(-1 * var(--size-line-thick));
+  border-radius: var(--size-line-normal);
+  transform-origin: center center;
+}
+
+/* Hourly markers are slightly more prominent */
+.clock-marker:nth-child(3n) {
+  width: var(--size-line-thick);
+  height: var(--radius-sm);
+  background: var(--clock-marker-prominent);
+}
+
+.clock-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: var(--size-dot-sm);
+}
+
+.hour-hand {
+  width: var(--size-dot-sm);
+  height: var(--space-xl);
+  background: var(--clock-hand-hour);
+  margin-left: calc(-1 * var(--size-line-normal));
+  z-index: 3;
+  transition: transform 1s cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.minute-hand {
+  width: var(--size-line-thick);
+  height: var(--logo-size-md);
+  background: var(--clock-hand-min);
+  margin-left: calc(-1 * var(--size-line-thin) * 1.5);
+  z-index: 2;
+  transition: transform 1s cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.second-hand {
+  width: var(--size-line-normal);
+  height: calc(var(--space-3-2) + var(--size-dot-lg));
+  background: var(--clock-hand-sec);
+  /* Centralized accent */
+  margin-left: calc(-1 * var(--size-line-thin));
+  z-index: 4;
+  border-radius: 0;
+  /* Multi-stage animation logic for smoothness */
+  transition: transform 0.2s cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.clock-center-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--radius-sm);
+  height: var(--radius-sm);
+  background: var(--clock-pin-bg);
+  border-radius: 50%;
+  margin-left: calc(-1 * var(--size-dot-sm));
+  margin-top: calc(-1 * var(--size-dot-sm));
+  z-index: 5;
+  box-shadow: 0 0 var(--size-dot-sm) var(--black-50);
+}
+
+.clock-ampm-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-dot-sm);
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.clock-ampm {
+  font-size: var(--unit-0-5);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  background: var(--transparent);
+  border: var(--size-line-thin) solid var(--primary);
+  border-radius: var(--radius-xs);
+  padding: var(--unit-0-15) var(--unit-0-45);
+}
+
+.clock-tz-badge {
+  font-size: var(--unit-0-5);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white-25);
+  background: var(--transparent);
+  border: var(--size-line-thin) solid var(--white-06);
+  border-radius: var(--radius-xs);
+  padding: var(--unit-0-15) var(--unit-0-45);
+}

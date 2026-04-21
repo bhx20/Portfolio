@@ -1,0 +1,170 @@
+/* ==========================================================================
+   TYPOGRAPHY ARCHITECTURE & TOKENS
+   ========================================================================== */
+:root {
+  /* ── 1. FONT FAMILIES ── */
+  --font-main: var(--font-open-sans), sans-serif;
+  --font-code: var(--font-open-sans), monospace;
+
+  /* ── 2. FLUID FONT SCALE ── */
+  --fs-xs: clamp(var(--unit-0-6), 1vh, var(--unit-0-75));
+  --fs-sm: clamp(var(--unit-0-75), 1.2vh, var(--unit-0-85));
+  --fs-base: clamp(var(--unit-0-85), 1.5vh, var(--unit-1));
+  --fs-md: clamp(var(--unit-1), 2vh, var(--unit-1-25));
+  --fs-lg: clamp(var(--unit-1-25), 2.5vh, var(--unit-1-75));
+  --fs-xl: clamp(var(--unit-1-75), 4vh, var(--unit-2-5));
+  --fs-2xl: clamp(var(--unit-2-5), 6vh, var(--unit-4));
+  --fs-3xl: clamp(var(--unit-4), 10vh, var(--unit-7));
+
+  /* Decorative Typography */
+  --fs-mega: clamp(var(--unit-5), 15vh, var(--unit-15));
+  --fs-giant: clamp(var(--unit-8), 20vh, var(--unit-20));
+  --fs-hero-display: clamp(var(--unit-2-8), 11vw, var(--unit-9-5));
+  --fs-index-display: var(--unit-5);
+
+  /* ── 3. FONT WEIGHTS ── */
+  --fw-thin: 100;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-heavy: 900;
+  --fw-black: 950;
+
+  /* ── 4. LETTER SPACING ── */
+  --ls-tight: -0.04em;
+  --ls-normal: 0;
+  --ls-wide: 0.12em;
+  --ls-widest: 0.4em;
+
+  /* ── 5. LINE HEIGHTS ── */
+  --lh-none: 0.9;
+  --lh-tight: 1.1;
+  --lh-normal: 1.5;
+
+  /* ── 6. SEMANTIC TEXT COLOR TOKENS ── */
+  /* Moved to colors.css */
+
+  /* ── 7. TITLE SIZE & WEIGHT TOKENS ── */
+  --title-primary-size:   var(--fs-3xl);       /* Hero / section giant title */
+  --title-primary-weight: var(--fw-black);
+  --title-secondary-size: var(--fs-2xl);       /* Card / bento section title */
+  --title-secondary-weight: var(--fw-black);
+  --title-card-size:      var(--fs-xl);        /* Bento card title */
+  --title-card-weight:    var(--fw-bold);
+
+  /* ── 8. GRADIENT TEXT ── */
+  /* Moved to colors.css */
+}
+
+/* ==========================================================================
+   TYPOGRAPHY HIERARCHY (Centralized Control)
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-title);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight);
+}
+
+h1 {
+  font-size: var(--title-primary-size);
+  font-weight: var(--title-primary-weight);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: var(--title-secondary-size);
+  font-weight: var(--title-secondary-weight);
+}
+
+h3 {
+  font-size: var(--title-card-size);
+  font-weight: var(--title-card-weight);
+}
+
+h4 {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-extrabold);
+}
+
+/* ── Semantic Text Utility Classes ── */
+/* Apply these to elements instead of hardcoding colors per-component */
+
+.title-primary {
+  color: var(--color-title);
+  font-size: var(--title-primary-size);
+  font-weight: var(--title-primary-weight);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight);
+}
+
+.title-secondary {
+  color: var(--color-subtitle);
+  font-size: var(--title-secondary-size);
+  font-weight: var(--title-secondary-weight);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.title-card {
+  color: var(--color-subtitle);
+  font-size: var(--title-card-size);
+  font-weight: var(--title-card-weight);
+  line-height: var(--lh-tight);
+}
+
+.text-body {
+  color: var(--color-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+}
+
+.title-stat {
+  color: var(--color-title);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-none);
+}
+
+.text-label {
+  color: var(--color-label);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.mono {
+  font-family: var(--font-code);
+}
+
+.text-gradient {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typography Utilities */
+.tracking-widest {
+  letter-spacing: var(--ls-widest);
+}
+
+.tracking-wide {
+  letter-spacing: var(--ls-wide);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

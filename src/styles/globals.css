@@ -1,0 +1,277 @@
+/* ==========================================================================
+   PREMIUM 'CINEMA-GLASS' DESIGN SYSTEM v2.0
+   Theme: Deep Space Dark Mode + High-End Glassmorphism
+   Architecture: Modular Token System
+   ========================================================================== */
+
+/* ── 1. Design Tokens ── */
+  @import "./core/colors.css";
+  @import "./core/typography.css";
+  @import "./core/dimensions.css";
+  @import "./core/decoration.css";
+  @import "./core/animations.css";
+  @import "./core/effects.css";
+  @import "./core/z-index.css";
+  @import "./core/utils.css";
+
+/* ── 2. Core Layout & Global Architecture ── */
+@import "./layout/main.css";
+@import "./layout/shared.css";
+
+/* ==========================================================================
+   GLOBAL RESET & DEFAULTS
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* ── SINGLE SOURCE OF TRUTH: All page background colors come from here. ──
+     Never set background-color on individual page containers.
+     Change --background in theme/colors.css to update globally. */
+  background-color: var(--background);
+  /* Text color inherits from --color-body in theme/typography.css */
+  color: var(--color-body);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  line-height: var(--lh-normal);
+  position: relative;
+}
+
+/* Cinematic Atmospheric Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url(...); */
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: var(--z-nav);
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   GLOBAL COMPONENTS & UTILITIES
+   ========================================================================== */
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: var(--size-dot-md);
+  height: var(--size-dot-md);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--transparent);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--white-05);
+  border-radius: var(--radius-full);
+  border: var(--border-normal);
+  transition: all 0.3s var(--ease-premium);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ── Reusable Glass Panel ── */
+/* ── Centralized Bento Aesthetics ── */
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: var(--bento-inner-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.6s var(--ease-premium);
+  background: var(--bento-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.bento-card:hover {
+  border-color: var(--glass-border-strong);
+  transform: var(--effect-card-hover);
+  box-shadow: var(--shadow-xl);
+}
+
+.bento-compact {
+  /* Compact override removed to allow global padding. */
+}
+
+/* ── The 'Rich Glass' Signature Look ── */
+.rich-glass {
+  background: transparent !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--card-border);
+  border-top: var(--size-line-thin) solid var(--white-15);
+  border-left: var(--size-line-thin) solid var(--white-10);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  min-height: 0;
+  transition: var(--transition-premium);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: var(--depth-xl); /* Centralized depth token */
+  box-shadow: var(--shadow-lg);
+}
+
+/* Primary Refraction Layer */
+.rich-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--transparent);
+  pointer-events: none;
+  z-index: var(--z-default);
+  border-radius: inherit;
+  transition: opacity 0.6s var(--ease-premium);
+}
+
+/* Secondary Gloss Sweep */
+.rich-glass::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--transparent);
+  opacity: 0;
+  overflow: hidden;
+  transition: var(--transition-premium);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.rich-glass:hover {
+  border-color: var(--glass-border-strong);
+  transform: var(--effect-card-hover);
+  box-shadow: var(--shadow-xl);
+}
+
+.rich-glass:hover::after {
+  opacity: 1;
+  transform: translate(10%, 10%);
+}
+
+/* ── Centralized Bento Icon System ── */
+.bento-icon-wrapper {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--transparent);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  color: var(--white);
+  font-size: var(--fs-lg);
+  transition: all 0.5s var(--ease-premium);
+  margin-bottom: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+/* Sub-size for smaller bento units */
+.icon-sm {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  font-size: var(--fs-md);
+}
+
+/* Hover refinement: constant glow and lift */
+.bento-card:hover .bento-icon-wrapper,
+.rich-glass:hover .bento-icon-wrapper {
+  transform: var(--hover-lift-sm);
+  background: var(--transparent);
+  border-color: var(--white-30);
+  box-shadow: var(--shadow-xl), var(--shadow-inset);
+}
+
+/* ── Premium Tooltip System ── */
+[data-premium-tooltip] {
+  position: relative;
+}
+
+[data-premium-tooltip]::after {
+  content: attr(data-premium-tooltip);
+  position: absolute;
+  background: var(--white-05);
+  backdrop-filter: blur(var(--blur-lg)) saturate(220%);
+  -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(220%);
+  border: var(--border-normal);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--white);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+  text-shadow: 0 var(--size-line-thin) var(--size-line-normal) var(--black-20);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.4s var(--ease-premium);
+  z-index: var(--z-nav);
+}
+
+[data-tooltip-pos="right"]::after {
+  left: calc(100% + var(--space-base));
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(-1 * var(--size-dot-lg)));
+}
+
+[data-tooltip-pos="right"]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+[data-tooltip-pos="left"]::after {
+  right: calc(100% + var(--space-base));
+  top: 50%;
+  transform: translateY(-50%) translateX(var(--size-dot-lg));
+}
+
+[data-tooltip-pos="left"]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+
+@media (max-width: var(--bp-tablet-val)) { /* Reference: var(--bp-tablet) */
+  :root {
+    --floating-ui-offset: var(--space-lg);
+    --bento-inner-padding: var(--space-lg);
+  }
+}
+
+@media (max-width: var(--bp-mobile-val)) { /* Reference: var(--bp-mobile) */
+  :root {
+    --floating-ui-offset: var(--space-md);
+    --bento-inner-padding: var(--space-md);
+  }
+}

@@ -1,36 +1,70 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# Dependencies
+node_modules/
+.pnp
 .pnp.js
 
-# testing
-/coverage
+# Next.js Build
+.next/
+out/
+build/
+dist/
+dist-ssr/
 
-# next.js
-/.next/
-/out/
+# Next.js auto-generated (do NOT commit)
+next-env.d.ts
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# local env files
-.env*.local
+# Environment Variables & Secrets
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+!.env.example
 
-# vercel
+# OS / System Files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.classpath
+.project
+.settings/
+
+# Misc / Backups
+backup/
+*.bak
+*.tmp
+*.temp
 .vercel
-
-# typescript
 *.tsbuildinfo
-next-env.d.ts
+config.bat
+.npmrc
+
+# Planning & Workflow
+# We keep .planning in the repo to maintain agent context
+# but we can ignore specific large or temporary planning artifacts if they exist
+# .planning/intel/codebase/* 

@@ -1,0 +1,77 @@
+/* ==========================================================================
+   CORE LAYOUT FRAMEWORK
+   Architecture: Edge-Bleed Bento Logic & Responsive Modules
+   ========================================================================== */
+
+/* ── 1. Page Sections (Bento Slides) ── */
+.bento-slide {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  height: var(--full-height) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--section-v-padding) var(--section-h-padding) !important;
+  background: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+  scroll-snap-align: start !important;
+  scroll-snap-stop: always !important;
+  z-index: 20;
+}
+
+/* ── 2. Unified Module Containers ── */
+.module-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: var(--module-max-height); /* Reference anchor for bento proportions */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  z-index: 10;
+}
+
+.container-main {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ── 3. Section Labels (Headers) ── */
+.section-label {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max);
+  text-align: left;
+  margin-bottom: clamp(var(--space-md), 3vh, var(--space-3-5));
+  margin-left: calc(-1 * var(--space-xs)); /* Alignment correction for padding */
+  padding: var(--space-2xs) var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-black);
+  color: var(--muted);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  opacity: 0.7;
+  transition: all 0.4s var(--ease-premium);
+  z-index: 10;
+}
+
+
+
+/* ── 4. Special Layout Variants ── */
+.bento-edge-layout {
+  width: 100%;
+  max-width: 100%;
+  height: var(--full-height);
+  padding: 0 var(--space-giant);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
+}

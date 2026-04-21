@@ -1,0 +1,135 @@
+@import "../../../styles/globals.css";
+
+.hero-section {
+  composes: flex-center;
+  position: relative;
+  width: 100%;
+  height: var(--full-height);
+  overflow: hidden;
+  z-index: var(--z-content);
+  scroll-snap-align: start;
+  padding: 0 var(--space-lg);
+}
+
+.hero-content {
+  position: relative;
+  z-index: var(--z-content);
+  text-align: center;
+  width: 100% !important;
+  max-width: var(--container-md) !important;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.hero-branding {
+  composes: flex-col;
+  align-items: center;
+  z-index: var(--z-content);
+}
+
+.hero-title-tag {
+  composes: flex-center glass-panel;
+  position: relative;
+  gap: var(--space-xs);
+  padding: var(--space-2xs) var(--space-md);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.hero-title-tag:hover {
+  transform: var(--hover-lift-sm);
+  background: var(--glass-bg-hover);
+  border-color: var(--brand-glow);
+  box-shadow: var(--shadow-xl), var(--shadow-inset);
+}
+
+.tag-text {
+  z-index: var(--z-above);
+}
+
+.status-dot {
+  width: var(--size-dot-md);
+  height: var(--size-dot-md);
+  background-color: var(--color-title);
+  border-radius: 50%;
+  box-shadow: 0 0 var(--size-dot-lg) var(--color-title);
+  animation: pulse-dot 2s infinite ease-in-out;
+  z-index: var(--z-above);
+}
+
+
+.tag-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--transparent), var(--white-10), var(--transparent));
+  transform: skewX(-20deg);
+  animation: shimmer-anim 5s infinite;
+  z-index: var(--z-default);
+}
+
+
+.hero-name {
+  font-size: var(--fs-hero-display);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight);
+  composes: flex-col;
+  margin-bottom: var(--space-lg);
+  text-transform: uppercase;
+  color: var(--color-title);
+  text-shadow: 0 0 var(--space-2xl) var(--white-10);
+}
+
+.surname-glass {
+  font-style: italic;
+  font-weight: var(--fw-heavy);
+  margin-top: calc(-1 * var(--space-2xs));
+  font-size: 1em;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  opacity: 0.6;
+  z-index: var(--z-content);
+}
+
+.mouse-icon-sim {
+  width: var(--space-2xl);
+  height: var(--space-4xl);
+  border: calc(var(--size-line-normal) + var(--size-line-thin) * 0.5) solid var(--muted);
+  border-radius: var(--radius-md);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.mouse-dot {
+  position: absolute;
+  top: var(--radius-sm);
+  width: var(--size-dot-md);
+  height: var(--size-dot-md);
+  background: var(--muted);
+  border-radius: 50%;
+  animation: scrollDot 2s infinite ease-in-out;
+}
+
+.scroll-text {
+  opacity: 0.8;
+}
+
+
+/* Base styles only. Responsive overrides moved to centralized breakpoint files */

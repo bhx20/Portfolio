@@ -1,0 +1,79 @@
+/* =====================================================
+   LARGE DESKTOP BREAKPOINT (1537px - 2559px)
+   Target: Standard 1920x1080 and similar monitors
+   ===================================================== */
+
+@media (min-width: 1537px) and (max-width: 2559px) {
+  :root {
+    --bento-gap: var(--space-md);
+    --section-v-padding: var(--space-giant);
+    --section-h-padding: var(--space-6xl);
+    /* Ultra-wide framed look */
+    --container-max: 1600px;
+  }
+
+  /* ── Hero Scaling (Synced with Laptop for consistency) ── */
+  .hero-name {
+    font-size: var(--fs-giant) !important;
+    letter-spacing: var(--ls-tighter) !important;
+    line-height: var(--lh-none) !important;
+    margin-bottom: var(--space-sm) !important;
+  }
+
+  .hero-title-tag {
+    font-size: var(--fs-base) !important;
+    padding: var(--space-3xs) var(--space-sm) !important;
+    margin-bottom: var(--space-sm) !important;
+    transform: scale(0.85);
+  }
+
+  .hero-subtitle {
+    font-size: var(--fs-sm) !important;
+    color: var(--white-45) !important;
+  }
+
+  /* ── Content Proportions ── */
+  .about-vision-title {
+    font-size: var(--fs-5xl) !important;
+  }
+
+  /* ── Contact Section Parity (Synced with Laptop) ── */
+  #contact .contact-hero-title {
+    font-size: var(--fs-5xl) !important;
+    letter-spacing: var(--ls-tighter) !important;
+    line-height: var(--lh-none) !important;
+    margin-bottom: var(--space-md) !important;
+  }
+
+  #contact .contact-hero-sub {
+    font-size: var(--fs-sm) !important;
+    max-width: 32ch !important;
+    line-height: var(--lh-normal) !important;
+    opacity: 0.55 !important;
+  }
+
+  #contact .contact-hero-card {
+    /* Padding managed by global --bento-inner-padding */
+  }
+
+  /* -- Clock Scaling -- */
+  #contact .analog-clock-wrapper {
+    width: 160px !important;
+    height: 160px !important;
+    scale: 1.1 !important;
+  }
+
+  /* -- Bento Layout Adjustments -- */
+  .contact-bento-grid {
+    gap: var(--space-md) !important;
+  }
+
+  /* ── Tech Section Polishing ── */
+  #tech .engine-bento-card {
+    /* Padding managed by global --bento-inner-padding */
+  }
+
+  #tech .engine-bento-icon-wrapper {
+    margin-bottom: var(--space-sm) !important;
+  }
+}

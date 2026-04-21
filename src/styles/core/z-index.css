@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Z-INDEX SYSTEM
+   Centralized source for all stacking contexts
+   ========================================================================== */
+
+:root {
+  /* ── LAYER STACK ── */
+  --z-behind: -1;
+  --z-default: 1;
+  --z-above: 2;
+  --z-content: 10;
+  --z-content-elevated: 20;
+  
+  /* ── UI COMPONENTS ── */
+  --z-nav: 1000;
+  --z-floating: 5000;
+  --z-social: 9999;
+  --z-cursor: 10000;
+  
+  /* ── OVERLAYS & MODALS ── */
+  --z-overlay: 100000;
+  --z-banner: 110000;
+  --z-modal: 200000;
+  
+  /* ── CRITICAL ── */
+  --z-loading: 999999999;
+}

@@ -1,0 +1,93 @@
+/* ==========================================================================
+   UTILITY CLASSES & SEMANTIC MAPPINGS
+   Centralized layout helpers and high-level component tokens
+   ========================================================================== */
+
+:root {
+  /* ── 1. SEMANTIC COMPONENT MAPPINGS ── */
+  /* These map raw tokens to specific component types for easier global changes */
+  
+  /* Cards */
+  --card-padding: var(--space-xl);
+  --card-radius: var(--radius-lg);
+  --card-border: var(--border-glass);
+  --card-shadow: var(--shadow-lg);
+  
+  /* Buttons */
+  --btn-padding-sm: var(--space-2xs) var(--space-sm);
+  --btn-padding-md: var(--space-xs) var(--space-base);
+  --btn-padding-lg: var(--space-base) var(--space-xl);
+  --btn-radius: var(--radius-full);
+  
+  /* Typography Semantic Scale */
+  --title-huge: var(--fs-hero-display);
+  --title-section: var(--fs-xl);
+  --title-card: var(--fs-base);
+  --text-main: var(--fs-base);
+  --text-small: var(--fs-xs);
+}
+
+/* ── 2. LAYOUT UTILITIES ── */
+
+/* Flexbox Helpers */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Positioning Helpers */
+.absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+/* Effect Helpers */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--border-glass);
+  border-radius: var(--card-radius);
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* Text Clipping */
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

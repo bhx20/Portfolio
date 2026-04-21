@@ -1,0 +1,66 @@
+/* ==========================================================================
+   DECORATION & VISUAL EFFECTS TOKENS
+   Box Shadows • Border Radius • Glassmorphism • Borders
+   ========================================================================== */
+
+:root {
+  /* ── 1. BORDER RADIUS ── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 32px;
+  --radius-xl: 24px; /* Note: xl is often used for cards, using 24px here as per dimensions.css */
+  --radius-2xl: 40px;
+  --radius-full: 9999px;
+
+  /* ── 2. BOX SHADOWS ── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.60);  /* was --shadow-1 */
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.85); /* was --shadow-2 */
+  --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.95); /* was --shadow-3 */
+  
+  /* Internal Glow Shadows */
+  --shadow-inset: inset 0 1px 1px var(--white-10);
+
+  /* ── 3. VISUAL BLURS ── */
+  --blur-xs: 2px;
+  --blur-sm: 5px;
+  --blur-md: 10px;
+  --blur-lg: 25px;
+  --blur-xl: 40px;
+  --blur-giant: 150px;
+
+  /* ── 3. DEPTH & PERSPECTIVE ── */
+  --depth-md: 1000px;
+  --depth-xl: 2500px;
+
+  /* ── 4. BORDER STYLES ── */
+  --border-thin: 1px solid var(--border-subtle);
+  --border-normal: 1px solid var(--border-default);
+  --border-strong: 1px solid var(--border-strong);
+  --border-brand: 1px solid var(--brand-glow);
+  --border-brand-strong: 1px solid var(--brand-glow-strong);
+  --border-glass: 1px solid rgba(255, 255, 255, 0.06);
+  --border-glass-strong: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* ── 4. GLASSMORPHISM ── */
+  --glass-blur-amount: 40px;
+  --glass-saturation-amount: 100%;
+  --glass-blur: blur(var(--glass-blur-amount)) saturate(var(--glass-saturation-amount));
+  
+  --glass-gradient: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.02) 60%,
+      rgba(255, 255, 255, 0.01) 100%);
+      
+  --glass-shine: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.04) 0%,
+      transparent 70%);
+
+  /* ── 5. COMPONENT DECORATION ── */
+  --card-shadow: var(--shadow-lg);
+  --card-border: var(--border-glass);
+  --button-shadow: var(--shadow-sm);
+  --nav-shadow: var(--shadow-md);
+}

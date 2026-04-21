@@ -1,0 +1,20 @@
+/* =====================================================
+   4K & ULTRA-WIDE BREAKPOINT (>= 2560px)
+   ===================================================== */
+
+@media (min-width: 2560px) {
+  :root {
+    --bento-gap: var(--space-lg);
+    --section-v-padding: var(--space-6xl);
+    --section-h-padding: var(--space-giant);
+    --container-max: 1800px;
+  }
+
+  /* 4k Typography scale up */
+  h1 { font-size: var(--fs-giant); }
+  h2 { font-size: var(--fs-5xl); }
+  
+  .showcase-node-0 .project-header {
+    font-size: var(--fs-5xl);
+  }
+}

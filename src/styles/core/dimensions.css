@@ -1,0 +1,150 @@
+/* ==========================================================================
+   DIMENSIONS, SPACING & LAYOUT TOKENS
+   ========================================================================== */
+:root {
+  /* ── 1. SPACING SCALE ── */
+  --space-4xs: 0.125rem;
+  --space-3-5xs: 0.375rem;
+  --space-3xs: 0.25rem;
+  --space-2-5xs: 0.375rem; /* Same as 3.5xs for alias */
+  --space-2xs: 0.5rem;
+  --space-1-5xs: 0.625rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-base: 1.25rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-2-2: 2.2rem;
+  --space-xl: 2.5rem;
+  --space-2-8: 2.8rem;
+  --space-2xl: 3rem;
+  --space-3-2: 3.2rem;
+  --space-3-5: 3.5rem;
+  --space-3xl: 4rem;
+  --space-4-5: 4.5rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+  --space-6xl: 12rem;
+  --space-giant: 10rem;
+
+  /* ── 2. ICON SIZING ── */
+  --icon-size-xs: 16px;
+  --icon-size-sm: 32px;
+  --icon-size-md: 48px;
+  --icon-size-lg: 64px;
+  
+  --logo-size-md: 38px;
+  
+  /* ── 3. ELEMENT SIZING ── */
+  --size-dot-sm: 4px;
+  --size-dot-md: 6px;
+  --size-dot-7: 7px;
+  --size-dot-lg: 10px;
+  --size-dot-xl: 12px;
+  --size-15: 15px;
+  --size-18: 18px;
+  --size-20: 20px;
+  --size-22: 22px;
+  --size-24: 24px;
+  --size-30: 30px;
+  --size-34: 34px;
+  --size-36: 36px;
+  --size-42: 42px;
+  --size-44: 44px;
+  --size-48: 48px;
+  --size-55: 55px;
+  --size-58: 58px;
+  --size-60: 60px;
+  --size-70: 70px;
+  --size-80: 80px;
+  --size-85: 85px;
+  --size-120: 120px;
+  --size-160: 160px;
+  --size-180: 180px;
+  --size-200: 200px;
+  --size-220: 220px;
+  --size-260: 260px;
+  --size-280: 280px;
+  --size-300: 300px;
+  --size-320: 320px;
+  --size-360: 360px;
+  --size-380: 380px;
+  --size-480: 480px;
+  --size-500: 500px;
+  --size-700: 700px;
+  --size-1000: 1000px;
+  --size-line-thin: 1px;
+  --size-line-normal: 2px;
+  --size-line-thick: 3px;
+
+  /* ── 5. BREAKPOINT VALUES (FOR MEDIA QUERIES) ── */
+  --bp-tablet-val: 1024px;
+  --bp-tablet-start-val: 769px;
+  --bp-mobile-val: 768px;
+  --bp-mobile-start-val: 381px;
+  --bp-mobile-sm-val: 480px;
+
+  /* ── 6. LAYOUT & GRID PRIMITIVES ── */
+  /* Moved to decoration.css */
+  
+  /* ── 4. RADIUS ── */
+  /* Moved to decoration.css */
+
+  /* ── 5. LAYOUT STANDARDS ── */
+  --bento-gap: var(--space-xs);
+  --section-v-padding: 8.5rem;
+  --section-h-padding: 8.5rem;
+  --container-max: 1400px;
+  --container-md: 1200px;
+  --container-max-xs: 400px;
+  --container-max-sm: 600px;
+  --size-280: 280px;
+  --module-max-height: 850px;
+  --floating-ui-offset: var(--space-xl);
+  --bento-inner-padding: var(--space-xl);
+
+  /* ── 6. UNIT SCALE (FOR FLUID TYPOGRAPHY) ── */
+  --unit-0-1: 0.1rem;
+  --unit-0-15: 0.15rem;
+  --unit-0-2: 0.2rem;
+  --unit-0-45: 0.45rem;
+  --unit-0-5: 0.5rem;
+  --unit-0-6: 0.6rem;
+  --unit-0-75: 0.75rem;
+  --unit-0-85: 0.85rem;
+  --unit-6: 6rem;
+  --unit-8: 8rem;
+  --unit-9: 9rem;
+  --unit-1: 1rem;
+  --unit-1-15: 1.15rem;
+  --unit-1-2: 1.2rem;
+  --unit-1-25: 1.25rem;
+  --unit-1-75: 1.75rem;
+  --unit-1-85: 1.85rem;
+  --unit-2-1: 2.1rem;
+  --unit-2-5: 2.5rem;
+  --unit-2-8: 2.8rem;
+  --unit-4: 4rem;
+  --unit-5: 5rem;
+  --unit-7: 7rem;
+  --unit-8: 8rem;
+  --unit-9-5: 9.5rem;
+  --unit-15: 15rem;
+  --unit-20: 20rem;
+
+  /* ── 7. BREAKPOINT VALUES ── */
+  --bp-mobile-s: 380px;
+  --bp-mobile-xs: 480px;
+  --bp-mobile: 768px;
+  --bp-tablet: 1024px;
+  --bp-laptop: 1536px;
+  --bp-desktop: 2560px;
+
+  /* ── 8. DYNAMIC VIEWPORT STANDARDS ── */
+  --vh-unit: var(--vh, 1vh);
+  --viewport-height: calc(var(--vh-unit) * 100);
+  --full-height: calc(var(--vh, 1vh) * 100);
+
+  /* ── 9. MOTION & EFFECTS ── */
+  --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+}

@@ -1,0 +1,516 @@
+/* =====================================================
+   MOBILE BREAKPOINT (381px - 768px)
+   ===================================================== */
+
+@media (min-width: var(--bp-mobile-start-val)) and (max-width: var(--bp-mobile-val)) { /* Reference: var(--bp-mobile) */
+
+  /* Global Adjustments */
+  :root {
+    --section-h-padding: var(--space-lg);
+    --section-v-padding: var(--space-3xl);
+    --bento-gap: var(--space-base);
+  }
+
+  /* ── Disable all tooltips on touch/mobile ── */
+  [data-premium-tooltip]::after,
+  [data-premium-tooltip]::before {
+    display: none !important;
+  }
+
+  .widget-tooltip {
+    display: none !important;
+  }
+
+  /* Hide hover-only indicator dots on touch */
+  .widget-toggle::before,
+  .social-link::before {
+    display: none !important;
+  }
+
+
+
+  /* Reset Container Constraints */
+  .about-container,
+  .showcase-container,
+  .tech-container,
+  .module-container,
+  .slide-content-wrapper {
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    composes: flex-col;
+  }
+
+  /* ── Typography & Identity ── */
+  .hero-name {
+    font-size: var(--fs-4xl) !important;
+    line-height: var(--lh-none) !important;
+    letter-spacing: var(--ls-tighter) !important;
+    gap: var(--space-4xs) !important;
+    margin-bottom: var(--space-xl) !important;
+  }
+
+  .hero-title-tag {
+    margin-bottom: var(--space-xl) !important;
+    padding: var(--space-2xs) var(--space-sm) !important;
+  }
+
+  .tag-text {
+    font-size: var(--fs-xs) !important;
+    letter-spacing: var(--ls-widest) !important;
+  }
+
+  .title-text {
+    font-size: var(--fs-base) !important;
+  }
+
+  /* ── Ultra-Compact Mobile (480px) ── */
+  @media (max-width: var(--bp-mobile-sm-val)) { /* Reference: var(--bp-mobile-xs) */
+    .hero-name {
+      font-size: var(--fs-3xl) !important;
+      line-height: var(--lh-none) !important;
+      letter-spacing: var(--ls-tighter) !important;
+    }
+
+    .hero-title-tag {
+      margin-bottom: var(--space-md) !important;
+      padding: var(--space-3xs) var(--space-sm) !important;
+    }
+
+    .tag-text {
+      font-size: var(--fs-xs) !important;
+      letter-spacing: var(--ls-widest) !important;
+    }
+
+    .title-text {
+      font-size: var(--fs-sm) !important;
+    }
+
+    .status-dot {
+      width: var(--size-dot-sm) !important;
+      height: var(--size-dot-sm) !important;
+    }
+
+    .name-block {
+      font-size: var(--fs-base) !important;
+      letter-spacing: var(--ls-tighter) !important;
+    }
+
+    .surname-glass {
+      font-size: var(--fs-base) !important;
+      letter-spacing: var(--ls-tighter) !important;
+      margin-top: calc(-1 * var(--space-4xs)) !important;
+    }
+  }
+
+  .name-block,
+  .surname-block {
+    font-size: var(--fs-base) !important;
+  }
+
+  .about-vision-title {
+    font-size: var(--fs-3xl) !important;
+    line-height: var(--lh-none) !important;
+  }
+
+  .about-bio-text {
+    font-size: var(--fs-base) !important;
+    line-height: var(--lh-normal) !important;
+    max-width: 100% !important;
+    opacity: 0.9 !important;
+  }
+
+  .section-label {
+    padding: 0 var(--space-sm) !important;
+  }
+
+  .portfolio-wrapper {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    display: block !important;
+  }
+
+  .slider-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .slider-section {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+  }
+
+  .bento-slide {
+    padding: var(--space-3-5) var(--space-base) var(--space-4xl) var(--space-base) !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    scroll-snap-align: none !important;
+  }
+
+  /* ── Overlap & Decorative Cleanup ── */
+  .project-card-index,
+  .loc-bg-number {
+    opacity: 0.015 !important;
+    /* Barely visible to prevent text overlap */
+    transform: scale(0.8) translate(-50%, -50%) !important;
+  }
+
+  .vision-star,
+  .loc-watermark,
+  .hero-scroll-indicator {
+    display: none !important;
+    /* Clear clutter for small screens */
+  }
+
+  .project-aura {
+    opacity: 0.3 !important;
+    /* Subtle glows on mobile */
+  }
+
+  /* ── Floating UI Cleanup ── */
+  .section-dots {
+    display: none !important;
+  }
+
+  .icons-section {
+    top: auto !important;
+    bottom: var(--floating-ui-offset) !important;
+    left: var(--floating-ui-offset) !important;
+    position: fixed !important;
+    transform: none !important;
+    z-index: var(--z-floating);
+    transition: all var(--duration-normal) var(--ease-premium) !important;
+  }
+
+  /* Hide Social Icons when NOT in Hero */
+  .main-app-container[data-active-section]:not([data-active-section="hero"]) .icons-section {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(calc(-1 * var(--size-15))) !important;
+  }
+
+  .social-icons {
+    flex-direction: column !important;
+    gap: var(--space-2xs) !important;
+    padding: var(--space-sm) !important;
+    border-radius: var(--radius-full) !important;
+    align-items: center !important;
+    width: fit-content !important;
+    max-width: none !important;
+    border: var(--size-line-thin) solid var(--white-08) !important;
+  }
+
+  .social-link {
+    width: var(--space-lg) !important;
+    height: var(--space-lg) !important;
+    opacity: 0.9 !important;
+  }
+
+  .remote-icon {
+    width: var(--space-base) !important;
+    height: var(--space-base) !important;
+  }
+
+  .community-widget-container {
+    bottom: var(--floating-ui-offset) !important;
+    right: var(--floating-ui-offset) !important;
+    z-index: var(--z-floating);
+    transition: all var(--duration-normal) var(--ease-premium) !important;
+  }
+
+  /* Hide Community Widget when NOT in Hero */
+  .main-app-container[data-active-section]:not([data-active-section="hero"]) .community-widget-container {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(var(--size-20)) !important;
+  }
+
+  .widget-toggle {
+    width: var(--icon-size-md) !important;
+    height: var(--icon-size-md) !important;
+  }
+
+  .widget-panel {
+    width: calc(100vw - var(--space-xl));
+    max-width: var(--size-320);
+    right: 0;
+    bottom: var(--size-60);
+    height: var(--container-max-xs);
+  }
+
+  /* ── About Section Grid Stacking ── */
+  .about-layout .about-bento-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto auto auto !important;
+    grid-template-areas:
+      "vision vision"
+      "proj exp"
+      "loc vibe"
+      "cta cta" !important;
+    gap: var(--bento-gap) !important;
+  }
+
+  .about-layout .about-bento-grid > * {
+    width: 100% !important;
+    position: relative !important;
+    /* Ensure they aren't floating */
+  }
+
+  .about-layout .about-bento-grid .cta-card {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: var(--space-xl) !important;
+    padding: var(--space-2xl) var(--space-md) !important;
+  }
+
+  .cta-title {
+    font-size: var(--fs-3xl) !important;
+  }
+
+  .cta-sub {
+    font-size: var(--fs-base) !important;
+    margin: 0 auto !important;
+  }
+
+  .cta-btn-white {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: var(--space-base) var(--space-xl) !important;
+    font-size: var(--fs-base) !important;
+  }
+
+  .about-title {
+    margin-bottom: var(--space-md);
+  }
+
+  .about-layout .about-bento-grid .vision-card {
+    padding: var(--space-2xl) var(--space-md) !important;
+    min-height: var(--size-280) !important;
+  }
+
+  .about-layout .loc-status {
+    composes: relative;
+    margin-top: var(--space-sm) !important;
+  }
+
+  .about-layout .loc-watermark {
+    display: none !important;
+    /* Hide watermark on mobile to prevent overlap */
+  }
+
+  /* Tech Stack Grid Stacking — tools above journey */
+  .tech-bento-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "front"
+      "back"
+      "mobile"
+      "core"
+      "tools"
+      "evo" !important;
+  }
+
+  .bento-card {
+    padding: var(--space-md) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* Showcase Grid — single column with nth-child for reliability */
+  .showcase-bento-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: var(--bento-gap) !important;
+  }
+
+  .showcase-bento-grid > div {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    padding: var(--space-md) !important;
+    margin: 0 !important;
+    border-radius: var(--radius-md) !important;
+    min-height: var(--size-260) !important;
+  }
+
+  /* First card gets more height for visual impact */
+  .showcase-bento-grid > div:nth-child(1) {
+    min-height: var(--size-360) !important;
+  }
+
+  /* Contact Section Stacking */
+  #contact .contact-bento-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--bento-gap) !important;
+  }
+
+  #contact .contact-top-cards {
+    flex-direction: row !important;
+    gap: var(--bento-gap) !important;
+    width: 100% !important;
+  }
+
+  /* Force all contact cards to center/full-width without offensive margins */
+  #contact .contact-info-card,
+  #contact .whatsapp-card-premium,
+  #contact .loc-card,
+  #contact .clock-card {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+    max-height: var(--size-180) !important;
+    aspect-ratio: auto !important;
+  }
+
+  /* -- WhatsApp Card Sync -- */
+  .whatsapp-card-premium .whatsapp-icon-wrapper {
+    font-size: var(--fs-4xl) !important;
+  }
+
+  .whatsapp-card-premium .wa-status-pill {
+    font-size: var(--fs-xs) !important;
+    padding: var(--space-4xs) var(--space-2xs) !important;
+  }
+
+  #contact .contact-hero-body {
+    flex-direction: column !important;
+    gap: var(--space-2xl) !important;
+  }
+
+  #contact .hero-side-meta {
+    padding-left: 0 !important;
+    border-top: var(--size-line-thin) solid var(--white-08) !important;
+    padding-top: var(--space-xl) !important;
+  }
+
+  #contact .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+
+  #contact .contact-hero-card::after {
+    font-size: var(--fs-giant) !important;
+    bottom: calc(-1 * var(--unit-1)) !important;
+    right: calc(-1 * var(--unit-0-5)) !important;
+  }
+
+  .cta-email-address {
+    font-size: var(--fs-sm) !important;
+    /* Scale down for mobile fit */
+  }
+
+  /* ── Contact Form Mobile Optimization ── */
+  .contact-form-container {
+    padding: var(--space-sm) var(--space-sm) !important;
+    gap: var(--space-md) !important;
+    /* Reduced from 2.5rem */
+  }
+
+  .form-header {
+    margin-bottom: var(--unit-0-2) !important;
+  }
+
+  .form-title {
+    font-size: var(--fs-xl) !important;
+    /* Reduced from 1.8rem */
+  }
+
+  .contact-form {
+    gap: var(--space-base) !important;
+    /* Reduced from 1.8rem */
+  }
+
+  #contact .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-sm) !important;
+    /* Reduced from 1.2rem */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-3xl) !important;
+    /* Vertical compression */
+    font-size: var(--fs-sm) !important;
+  }
+
+  .form-submit-btn {
+    padding: var(--space-base) !important;
+    /* More compact */
+    font-size: var(--fs-xs) !important;
+  }
+
+  /* ── Showcase Section nav arrow — fixed above grid ── */
+  .showcase-nav-arrow {
+    background: var(--white-05) !important;
+    top: calc(-1 * var(--space-3xl)) !important;
+  }
+  .next-view-btn,
+  .prev-view-btn {
+    right: var(--unit-0-5) !important;
+    left: auto !important;
+  }
+
+  /* ── Products View — nth-child for reliable alignment ── */
+  .products-bento-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+
+  /* Card 1 full width featured */
+  .products-bento-grid > div:nth-child(1) {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    min-height: var(--size-300) !important;
+  }
+
+  /* Cards 2-4 full width stacked */
+  .products-bento-grid > div:nth-child(2),
+  .products-bento-grid > div:nth-child(3),
+  .products-bento-grid > div:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    min-height: var(--size-220) !important;
+  }
+
+  .products-bento-container {
+    height: auto !important;
+  }
+
+  .products-layout {
+    overflow-y: visible !important;
+  }
+
+  /* ── Loading Screen (Mobile) ── */
+  .loading-content-synaptic {
+    gap: var(--space-2xl) !important;
+  }
+
+  .synaptic-hub {
+    width: var(--size-200) !important;
+    height: var(--size-200) !important;
+  }
+
+  .core-percent .num {
+    font-size: var(--fs-3xl) !important;
+  }
+
+  .logo-char {
+    font-size: var(--fs-4xl) !important;
+  }
+
+  /* ── Custom Cursor (Mobile/Tablet Hand-off) ── */
+  .cursor-main {
+    --size: var(--icon-size-xs) !important;
+  }
+}

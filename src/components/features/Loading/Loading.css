@@ -1,0 +1,279 @@
+@import "../../../styles/globals.css";
+
+.loading-screen-advanced {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--full-height);
+  /* Exception: fixed overlay must declare its own background — cannot inherit from body.
+     Value is still centralized via var(--background) from theme/colors.css. */
+  background-color: var(--background);
+  z-index: var(--z-loading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-main);
+  color: var(--white);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Cinematic Atmospheric Glows */
+.loading-glow-1,
+.loading-glow-2 {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  filter: blur(var(--blur-giant));
+  border-radius: 50%;
+  opacity: 0.25;
+  z-index: var(--z-default);
+  animation: glow-pulse 10s infinite alternate ease-in-out;
+}
+
+.loading-glow-1 {
+  display: none;
+  background: var(--transparent);
+  top: -20vh;
+  left: -20vw;
+}
+
+.loading-glow-2 {
+  display: none;
+  bottom: -20vh;
+  right: -20vw;
+  animation-delay: -5s;
+}
+
+
+/* Iris Layer - Aperture Reveal */
+.iris-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  clip-path: circle(0% at 50% 50%);
+  z-index: var(--z-content-elevated);
+}
+
+/* Warp Field - Particles */
+.warp-field {
+  position: absolute;
+  inset: 0;
+  perspective: var(--depth-md);
+  z-index: var(--z-default);
+}
+
+.warp-particle {
+  position: absolute;
+  width: var(--size-line-normal);
+  height: var(--size-line-normal);
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 var(--size-dot-lg) var(--white);
+  animation: warp-move 5s linear infinite;
+}
+
+
+/* Synaptic Content */
+.loading-content-synaptic {
+  position: relative;
+  z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl);
+  width: 100%;
+  max-width: var(--container-max-sm);
+  padding: 0 var(--space-lg);
+  text-align: center;
+}
+
+/* Synaptic Energy Hub */
+.synaptic-hub {
+  position: relative;
+  width: var(--size-280);
+  height: var(--size-280);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.hub-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.hub-ring {
+  fill: none;
+  stroke: var(--white-05);
+  stroke-width: var(--size-line-thin);
+  transform-origin: center;
+}
+
+.hub-ring.outer {
+  animation: hub-rotate 20s linear infinite;
+}
+
+.hub-ring.mid {
+  stroke: var(--primary-glow);
+  animation: hub-rotate-rev 15s linear infinite;
+}
+
+.hub-ring.inner {
+  stroke: var(--secondary-glow);
+  animation: hub-rotate 10s linear infinite;
+}
+
+.hub-progress {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: var(--size-line-normal);
+  stroke-linecap: round;
+  stroke-dasharray: 534;
+  transition: stroke-dashoffset 0.5s ease;
+  filter: drop-shadow(0 0 var(--radius-sm) var(--primary));
+}
+
+
+
+.hub-core {
+  position: relative;
+  z-index: var(--z-above);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.core-glow {
+  position: absolute;
+  inset: calc(-1 * var(--size-20));
+  background: radial-gradient(circle, var(--primary-glow) 0%, var(--transparent) 70%);
+  border-radius: 50%;
+  animation: core-pulse 2s infinite ease-in-out;
+}
+
+
+.core-percent {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: var(--size-line-normal);
+  font-family: var(--font-main);
+}
+
+.core-percent .num {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+}
+
+.core-percent .sym {
+  font-size: var(--fs-base);
+  opacity: 0.5;
+}
+
+/* Fragmented Logo Reveal */
+.fragmented-logo {
+  display: flex;
+  gap: var(--space-2xs);
+  perspective: var(--depth-md);
+}
+
+.logo-char {
+  font-size: clamp(var(--unit-2), 8vw, var(--unit-5));
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--white);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-block;
+  text-shadow: 0 0 var(--size-20) var(--white-20);
+}
+
+/* Refraction Sweep - Laser Scan (fixed to screen, not content) */
+.refraction-sweep {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--size-line-normal);
+  background: linear-gradient(90deg, var(--transparent), var(--primary), var(--white), var(--primary), var(--transparent));
+  box-shadow: 0 0 var(--space-2xl) var(--primary);
+  opacity: 0.3;
+  animation: sweep 4s infinite linear;
+  z-index: var(--z-content-elevated);
+  pointer-events: none;
+}
+
+
+/* Synaptic Status */
+.synaptic-status {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.status-scanner {
+  width: var(--space-xl);
+  height: var(--size-line-thin);
+  background: var(--primary);
+  animation: scan-line 2s infinite ease-in-out;
+}
+
+
+.status-text {
+  /* Using centralized .text-label */
+  margin: 0;
+}
+
+/* Meta Footer */
+.synaptic-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  font-size: var(--fs-xs);
+  font-family: var(--font-code);
+  letter-spacing: var(--ls-wide);
+  opacity: 0.25;
+  margin-top: var(--space-lg);
+}
+
+.sep {
+  color: var(--primary);
+}
+
+/* Debug Error Monitor Styles */
+.debug-error-monitor {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  max-width: 100%;
+}
+
+.debug-error-item {
+  /* Using centralized .text-body */
+  font-family: var(--font-code);
+  background: var(--white-03);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-xs);
+  border: var(--border-thin);
+  animation: error-flicker 0.4s ease-out;
+}
+
+
+/* Base styles only. Responsive overrides moved to centralized breakpoint files */

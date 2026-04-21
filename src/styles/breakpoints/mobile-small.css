@@ -1,0 +1,458 @@
+/* =====================================================
+   SMALL MOBILE BREAKPOINT (<= 380px)
+   Exact replica of mobile.css with tighter spacing/type
+   ===================================================== */
+
+@media (max-width: 380px) { /* Reference: var(--bp-mobile-s) */
+
+  /* Global Adjustments */
+  :root {
+    --section-h-padding: var(--space-xs);
+    --section-v-padding: var(--space-2xl);
+    --bento-gap: var(--space-1-5xs);
+  }
+
+  /* ── Disable all tooltips on touch ── */
+  [data-premium-tooltip]::after,
+  [data-premium-tooltip]::before {
+    display: none !important;
+  }
+
+  .widget-tooltip {
+    display: none !important;
+  }
+
+  .widget-toggle::before,
+  .social-link::before {
+    display: none !important;
+  }
+
+  /* Reset Container Constraints */
+  .about-container,
+  .showcase-container,
+  .tech-container,
+  .module-container,
+  .slide-content-wrapper {
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* ── Typography ── */
+  .hero-name {
+    font-size: clamp(var(--fs-xl), 13vw, var(--fs-4xl)) !important;
+    line-height: var(--lh-none) !important;
+    letter-spacing: var(--ls-tightest) !important;
+    gap: var(--space-3xs) !important;
+    margin-bottom: var(--space-md) !important;
+  }
+
+  .hero-title-tag {
+    margin-bottom: var(--space-md) !important;
+    padding: var(--space-3xs) var(--space-sm) !important;
+  }
+
+  .tag-text {
+    font-size: var(--fs-xs) !important;
+    letter-spacing: var(--ls-widest) !important;
+  }
+
+  .title-text {
+    font-size: var(--fs-xs) !important;
+  }
+
+  .name-block,
+  .surname-block {
+    font-size: 0.95em !important;
+  }
+
+  .about-vision-title {
+    font-size: clamp(var(--fs-md), 6vw, var(--fs-xl)) !important;
+    line-height: var(--lh-none) !important;
+  }
+
+  .about-bio-text {
+    font-size: var(--fs-xs) !important;
+    line-height: var(--lh-relaxed) !important;
+    max-width: 100% !important;
+  }
+
+  .section-label {
+    padding: 0 var(--unit-0-75) !important;
+  }
+
+  /* ── Layout ── */
+  .portfolio-wrapper {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    display: block !important;
+  }
+
+  .slider-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .slider-section {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+  }
+
+  .bento-slide {
+    padding: var(--space-2xl) var(--space-xs) var(--space-3xl) var(--space-xs) !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    scroll-snap-align: none !important;
+  }
+
+  /* ── Hide Clutter ── */
+  .project-card-index,
+  .loc-bg-number {
+    opacity: 0.015 !important;
+    transform: scale(0.8) translate(-50%, -50%) !important;
+  }
+
+  .vision-star,
+  .loc-watermark,
+  .hero-scroll-indicator,
+  .section-dots {
+    display: none !important;
+  }
+
+  .project-aura {
+    opacity: 0.3 !important;
+  }
+
+  /* ── Floating UI ── */
+  .icons-section {
+    top: auto !important;
+    bottom: var(--space-sm) !important;
+    left: var(--space-sm) !important;
+    position: fixed !important;
+    transform: none !important;
+    z-index: var(--z-floating);
+    transition: all var(--duration-normal) var(--ease-premium) !important;
+  }
+
+  /* Hide Social Icons when NOT in Hero */
+  .main-app-container[data-active-section]:not([data-active-section="hero"]) .icons-section {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(-15px) !important;
+  }
+
+  .social-icons {
+    flex-direction: column !important;
+    gap: var(--space-3xs) !important;
+    padding: var(--space-2xs) var(--space-3xs) !important;
+    border-radius: var(--radius-full) !important;
+    align-items: center !important;
+    width: fit-content !important;
+    max-width: none !important;
+    border: var(--size-line-thin) solid var(--white-08) !important;
+  }
+
+  .social-link {
+    width: var(--space-md) !important;
+    height: var(--space-md) !important;
+    opacity: 0.9 !important;
+  }
+
+  .remote-icon {
+    width: var(--space-base) !important;
+    height: var(--space-base) !important;
+  }
+
+  .community-widget-container {
+    bottom: var(--space-sm) !important;
+    right: var(--space-sm) !important;
+    z-index: var(--z-floating);
+    transition: all var(--duration-normal) var(--ease-premium) !important;
+  }
+
+  /* Hide Community Widget when NOT in Hero */
+  .main-app-container[data-active-section]:not([data-active-section="hero"]) .community-widget-container {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(20px) !important;
+  }
+
+  .widget-toggle {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .widget-panel {
+    width: calc(100vw - var(--unit-2));
+    max-width: 300px;
+    right: 0;
+    bottom: var(--size-55);
+    height: var(--size-360);
+  }
+
+  /* ── About Section Grid — exact replica of mobile layout ── */
+  .about-layout .about-bento-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto auto auto !important;
+    grid-template-areas:
+      "vision vision"
+      "proj exp"
+      "loc vibe"
+      "cta cta" !important;
+    gap: var(--bento-gap) !important;
+  }
+
+  .about-layout .about-bento-grid > * {
+    width: 100% !important;
+    position: relative !important;
+  }
+
+  .about-layout .about-bento-grid .cta-card {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: var(--space-base) !important;
+    padding: var(--space-lg) var(--space-sm) !important;
+  }
+
+  .cta-title {
+    font-size: var(--fs-xl) !important;
+  }
+
+  .cta-sub {
+    font-size: var(--fs-xs) !important;
+    margin: 0 auto !important;
+  }
+
+  .cta-btn-white {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    font-size: var(--fs-sm) !important;
+  }
+
+  .about-title {
+    margin-bottom: var(--space-base);
+  }
+
+  .about-layout .about-bento-grid .vision-card {
+    padding: var(--space-xl) var(--space-base) !important;
+    min-height: 220px !important;
+  }
+
+  .about-layout .loc-status {
+    position: relative !important;
+    margin-top: var(--space-xs) !important;
+  }
+
+  .about-layout .loc-watermark {
+    display: none !important;
+  }
+
+  /* ── Tech Stack Grid — tools above journey ── */
+  .tech-bento-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "front"
+      "back"
+      "mobile"
+      "core"
+      "tools"
+      "evo" !important;
+  }
+
+  .bento-card {
+    padding: var(--space-base) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* ── Showcase Grid — nth-child for reliability ── */
+  .showcase-bento-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: var(--bento-gap) !important;
+  }
+
+  .showcase-bento-grid > div {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    padding: var(--space-base) !important;
+    margin: 0 !important;
+    border-radius: var(--radius-md) !important;
+    min-height: 220px !important;
+  }
+
+  /* First card gets more visual prominence */
+  .showcase-bento-grid > div:nth-child(1) {
+    min-height: 300px !important;
+  }
+
+  /* ── Showcase nav arrow fixed above grid ── */
+  .showcase-nav-arrow {
+    background: var(--white-05) !important;
+    top: calc(-1 * var(--space-3xl)) !important;
+    width: var(--space-2-8) !important;
+    height: var(--space-2-8) !important;
+  }
+
+  .next-view-btn,
+  .prev-view-btn {
+    right: var(--space-4xs) !important;
+    left: auto !important;
+  }
+
+  /* ── Contact Section Stacking ── */
+  #contact .contact-bento-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--bento-gap) !important;
+  }
+
+  #contact .contact-top-cards {
+    flex-direction: row !important;
+    gap: var(--bento-gap) !important;
+    width: 100% !important;
+  }
+
+  #contact .contact-info-card,
+  #contact .whatsapp-card-premium,
+  #contact .loc-card,
+  #contact .clock-card {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+    max-height: var(--size-160) !important;
+    aspect-ratio: auto !important;
+  }
+
+  /* -- WhatsApp Card -- */
+  .whatsapp-card-premium .whatsapp-icon-wrapper {
+    font-size: var(--fs-4xl) !important;
+  }
+
+  .whatsapp-card-premium .wa-status-pill {
+    font-size: var(--fs-xs) !important;
+    padding: var(--space-4xs) var(--space-3xs) !important;
+  }
+
+  .clock-time {
+    font-size: var(--fs-3xl) !important;
+  }
+
+  #contact .contact-hero-body {
+    flex-direction: column !important;
+    gap: var(--space-md) !important;
+  }
+
+  #contact .hero-side-meta {
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: var(--size-line-thin) solid var(--white-08) !important;
+    padding-top: var(--space-md) !important;
+  }
+
+  #contact .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xs) !important;
+  }
+
+  #contact .contact-hero-card::after {
+    font-size: var(--fs-giant) !important;
+    bottom: calc(-1 * var(--space-md)) !important;
+    right: calc(-1 * var(--space-sm)) !important;
+  }
+
+  .cta-email-address {
+    font-size: var(--fs-xs) !important;
+  }
+
+  .contact-form-container {
+    padding: var(--space-sm) var(--space-2xs) !important;
+    gap: var(--space-base) !important;
+  }
+
+  .form-header {
+    margin-bottom: var(--unit-0-15) !important;
+  }
+
+  .form-title {
+    font-size: var(--fs-lg) !important;
+  }
+
+  .contact-form {
+    gap: var(--space-2xs) !important;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: var(--space-sm) var(--space-md) !important;
+    font-size: var(--fs-xs) !important;
+  }
+
+  .form-submit-btn {
+    padding: var(--space-base) !important;
+    font-size: var(--fs-xs) !important;
+  }
+
+  /* ── Products View — nth-child for reliable alignment ── */
+  .products-bento-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+
+  .products-bento-grid > div:nth-child(1) {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    min-height: 260px !important;
+  }
+
+  .products-bento-grid > div:nth-child(2),
+  .products-bento-grid > div:nth-child(3),
+  .products-bento-grid > div:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    min-height: var(--size-180) !important;
+  }
+
+  .products-bento-container {
+    height: auto !important;
+  }
+
+  .products-layout {
+    overflow-y: visible !important;
+  }
+
+  /* ── Loading Screen ── */
+  .loading-content-synaptic {
+    gap: var(--size-24) !important;
+  }
+
+  .synaptic-hub {
+    width: var(--size-180) !important;
+    height: var(--size-180) !important;
+  }
+
+  .core-percent .num {
+    font-size: var(--fs-xl) !important;
+  }
+
+  .logo-char {
+    font-size: var(--fs-3xl) !important;
+  }
+
+  /* ── Custom Cursor ── */
+  .cursor-main {
+    --size: var(--space-md) !important;
+  }
+}

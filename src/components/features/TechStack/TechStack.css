@@ -1,0 +1,376 @@
+/* =====================================================
+   DEEP GLASS BENTO DESIGN - STACK SECTION (03)
+   ===================================================== */
+
+/* Global standards now defined in style.css */
+@import "../../../styles/globals.css";
+
+/* .slide-stack-label removed to use global .section-label */
+
+.tech-layout {
+  justify-content: center !important;
+  align-items: center !important;
+  padding-top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tech-container {
+  composes: module-container;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+.tech-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr 0.95fr;
+  grid-template-areas:
+    "front core evo"
+    "back core evo"
+    "mobile core evo"
+    "tools tools evo";
+  gap: var(--bento-gap);
+  width: 100%;
+  height: 100%;
+}
+
+.grid-front {
+  grid-area: front;
+}
+
+.grid-back {
+  grid-area: back;
+}
+
+.grid-mobile {
+  grid-area: mobile;
+}
+
+.tech-evolution-card {
+  grid-area: evo;
+}
+
+.tech-stack-card {
+  grid-area: core;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--space-sm);
+  overflow-y: auto !important;
+  scrollbar-width: none;
+}
+
+.tech-stack-card::-webkit-scrollbar {
+  display: none;
+}
+
+.tech-collab-card {
+  grid-area: tools;
+  min-height: var(--space-4xl);
+  /* Ensures consistent height for the wide bottom card */
+  overflow-y: auto !important;
+  scrollbar-width: none;
+}
+
+.tech-collab-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* Legacy engine card — replaced by individual engine-bento-card elements */
+
+.card-primary-title {
+  /* Using centralized .card-title now */
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  margin-top: 0;
+  margin-bottom: var(--space-2xs);
+  color: inherit;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+}
+
+.engine-bento-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center text vertically in the smaller cards */
+}
+
+.engine-bento-icon-wrapper {
+  /* Using centralized .bento-icon-wrapper now */
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: inherit;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  margin-bottom: var(--space-xs);
+}
+
+.engine-bento-icon {
+  font-size: inherit;
+  color: inherit;
+}
+
+.engine-bento-title {
+  /* Using centralized .title-card now */
+  margin-bottom: var(--space-2xs);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
+}
+
+.engine-bento-subtitle {
+  /* Using centralized .text-body now */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Core stack — grid area mapped in parent grid-template-areas */
+
+.core-stack-circles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--logo-size-md), 1fr));
+  gap: var(--space-md) var(--space-xs);
+  justify-items: center;
+  align-items: start;
+  margin-top: 0;
+  width: 100%;
+}
+
+
+.stack-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100%;
+}
+
+
+.circle-icon-wrapper {
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  background: var(--white-04);
+  border: var(--border-normal);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+
+.stack-circle-item:hover .circle-icon-wrapper {
+  background: var(--white-08);
+  border-color: var(--white-20);
+  transform: var(--hover-lift-lg);
+  box-shadow: var(--shadow-lg), var(--brand-glow-soft);
+}
+
+.circle-logo-img {
+  width: var(--logo-size-md);
+  height: var(--logo-size-md);
+  object-fit: contain;
+  opacity: 1 !important;
+  /* Forces 100% Vibrant */
+  transition: all 0.4s ease;
+}
+
+.stack-circle-item:hover .circle-logo-img {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.circle-label {
+  /* Using centralized .text-label */
+  color: var(--color-label) !important;
+  /* Increased Vibrancy */
+  margin-top: var(--space-2xs);
+  transition: color 0.4s ease;
+}
+
+.stack-circle-item:hover .circle-label {
+  color: var(--color-title);
+}
+
+/* Evolution card — grid area mapped in parent grid-template-areas */
+
+.evolution-timeline {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  margin-top: var(--space-sm) !important;
+  flex: 1 !important;
+  /* Forces timeline to occupy all available space */
+  overflow-y: scroll !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: var(--space-2xs);
+  mask-image: linear-gradient(to bottom, var(--black) 85%, var(--transparent) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, var(--black) 85%, var(--transparent) 100%);
+}
+
+.evolution-timeline::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar for Chrome/Safari */
+}
+
+.evolution-timeline::before {
+  content: '';
+  position: absolute;
+  left: var(--space-base);
+  /* Exactly centered in the var(--space-xl) dot-container width */
+  top: var(--space-xs);
+  bottom: var(--space-xs);
+  width: var(--size-line-thin);
+  background: var(--white-08);
+  /* Even more subtle line */
+  z-index: 0;
+}
+
+.evolution-item {
+  position: relative;
+  padding-left: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  /* Increased Breathing Room */
+}
+
+.evolution-item:last-child {
+  padding-bottom: 0;
+}
+
+.evolution-dot-container {
+  position: absolute;
+  left: 0;
+  top: var(--space-3xs);
+  width: var(--space-xl);
+  /* vertical rail width */
+  height: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.evolution-details {
+  padding-left: var(--space-sm);
+  /* Offset text from the rail */
+}
+
+.evolution-dot {
+  width: var(--space-2xs);
+  height: var(--space-2xs);
+  background: var(--white);
+  /* Static white for unselected points */
+  border-radius: 50%;
+  transition: var(--transition-premium);
+  z-index: 2;
+}
+
+.evolution-item.active .evolution-dot {
+  width: var(--size-dot-xl);
+  height: var(--size-dot-xl);
+  background: var(--secondary);
+  /* Highlight color for selected point */
+  box-shadow: var(--shadow-sm);
+  /* Subtle static glow */
+}
+
+/* Remove pulse animation as requested */
+.evolution-item.active .evolution-dot-container::after {
+  display: none;
+}
+
+
+.evolution-year {
+  display: block;
+  margin-bottom: var(--space-3xs);
+}
+
+.evolution-item.active .evolution-year {
+  color: var(--secondary);
+}
+
+.evolution-role {
+  /* Using centralized .title-card */
+  margin-bottom: var(--space-3xs);
+}
+
+.evolution-desc {
+  /* Using centralized .text-body */
+}
+
+/* CARD 4: Collaboration (Bottom Center) */
+/* Support stack grid mapped in parent */
+.tech-collab-card {
+  /* Using central grid area mapping */
+  position: relative;
+  /* for absolute avatars */
+}
+
+
+
+.collab-tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--space-2xs);
+  margin-top: var(--space-2xs);
+}
+
+.support-tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background: var(--white-02);
+  border: var(--border-thin);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+  cursor: default;
+}
+
+.support-tag-img {
+  width: var(--space-base);
+  height: var(--space-base);
+  object-fit: contain;
+  opacity: 1 !important;
+  /* Forces 100% Vibrant */
+  transition: all 0.3s ease;
+}
+
+.support-tag-text {
+  /* Using centralized .text-label */
+  color: var(--color-label) !important;
+  transition: color 0.3s ease;
+}
+
+.support-tag:hover {
+  background: var(--white-08);
+  border-color: var(--white-20);
+  transform: var(--hover-lift-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.support-tag:hover .support-tag-img {
+  opacity: 1;
+}
+
+.support-tag:hover .support-tag-text {
+  color: var(--color-title);
+}

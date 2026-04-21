@@ -1,0 +1,171 @@
+/* =====================================================
+   VERTICAL SNAP-SCROLL PORTFOLIO LAYOUT
+   New concept: Full-page sections snap vertically
+   with cinematic reveal animations
+   ===================================================== */
+
+.portfolio-wrapper {
+  background: var(--transparent);
+  width: 100vw;
+  height: var(--full-height);
+  position: relative;
+  overflow: hidden;
+  /* Disables normal scrolling for Slider Scroll */
+}
+
+.slider-inner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  will-change: transform;
+}
+
+.slider-section {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.portfolio-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Global Background Glows ── */
+.global-glow-1,
+.global-glow-2,
+.global-glow-3 {
+  display: none; /* Removed for total Tahoe neutralization */
+}
+
+.global-glow-1 {
+  width: 50vw;
+  height: 50vw;
+  background: var(--primary);
+  top: -15vw;
+  left: -15vw;
+}
+
+.global-glow-2 {
+  width: 45vw;
+  height: 45vw;
+  background: var(--transparent);
+  bottom: -10vw;
+  right: -10vw;
+  animation-delay: -6s;
+}
+
+.global-glow-3 {
+  width: 35vw;
+  height: 35vw;
+  background: var(--transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 18s;
+  opacity: 0.15;
+}
+
+/* ── Section dots nav ── */
+.section-dots {
+  position: fixed;
+  right: var(--floating-ui-offset);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  z-index: var(--z-nav);
+  align-items: center;
+}
+
+.section-dot {
+  width: var(--size-dot-lg);
+  height: var(--size-dot-lg);
+  border-radius: 50%;
+  background: var(--white-05);
+  border: calc(var(--size-line-thin) * 1.5) solid var(--white-20);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  text-decoration: none;
+  backdrop-filter: blur(var(--blur-sm));
+}
+
+.section-dot.active {
+  background: var(--white-80);
+  border-color: var(--white-80);
+  box-shadow:
+    0 0 var(--space-lg) var(--primary-glow),
+    0 0 var(--space-3xl) var(--primary-glow-soft);
+  transform: scale(1.3);
+}
+
+.section-dot:hover:not(.active) {
+  background: var(--transparent);
+  border-color: var(--white-40);
+  transform: scale(1.2);
+}
+
+
+
+.section-dot:hover {
+  background: var(--transparent);
+  border-color: var(--secondary);
+}
+
+/* ── Each snap slide ── */
+/* Global standards now in style.css */
+/* bento-slide consolidated into style.css */
+
+/* ── Slide section label (top left) ── */
+/* Removed - handled by .section-label in style.css */
+
+.slide-content-wrapper {
+  width: 100%;
+  max-width: var(--container-max);
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* ── Slide enter animation ── */
+
+.bento-slide>* {
+  animation: slide-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Stylish left border accent per section ── */
+.bento-slide::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: var(--size-line-normal);
+  background: linear-gradient(180deg, transparent, var(--white-20), transparent);
+  opacity: 0.4;
+}
+
+/* ── Responsive ── */
+
+/* Connection Status Banner */
+.connection-status-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--transparent);
+  color: var(--white);
+  padding: var(--space-2xs) var(--space-md);
+  text-align: center;
+  font-size: var(--fs-xs);
+  font-family: var(--font-code);
+  letter-spacing: var(--ls-normal);
+  z-index: var(--z-banner);
+  backdrop-filter: blur(var(--blur-md));
+  box-shadow: 0 var(--size-dot-sm) var(--space-md) var(--black-30);
+  animation: slide-down 0.5s var(--ease-premium);
+}

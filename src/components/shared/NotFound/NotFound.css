@@ -1,0 +1,170 @@
+@import "../../../styles/globals.css";
+
+.not-found-section {
+  position: relative;
+  width: 100vw;
+  height: var(--full-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+  padding: 0 var(--space-lg);
+}
+
+.not-found-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100% !important;
+  max-width: var(--container-md) !important;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Status Tag Alignment (Matching Hero) ── */
+.not-found-status {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--transparent);
+  border: var(--border-glass);
+  margin-bottom: clamp(var(--space-md), 3vh, var(--space-3-5));
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-lg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.not-found-status:hover {
+  transform: var(--hover-lift-sm);
+  background: var(--transparent);
+  border-color: var(--white-20);
+}
+
+.not-found-tag-text {
+  font-size: var(--unit-0-6);
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.pulse-dot-red {
+  width: var(--size-dot-sm);
+  height: var(--size-dot-sm);
+  background-color: var(--danger);
+  /* Alert Red for 404 */
+  border-radius: 50%;
+  box-shadow: 0 0 var(--size-dot-lg) var(--danger-glow);
+  animation: pulse-red 2s infinite ease-in-out;
+}
+
+
+/* ── Typography (Matching Hero Name) ── */
+.not-found-number {
+  font-size: clamp(var(--unit-2-5), 12vw, var(--unit-9));
+  font-weight: 950;
+  line-height: 1.1;
+  /* Increased from 0.85 for better spacing */
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-lg);
+  text-transform: uppercase;
+  color: var(--foreground);
+  text-shadow: 0 0 var(--space-2xl) var(--white-10);
+  padding: 0 var(--space-md);
+  /* Prevents italic clipping */
+  width: 100%;
+}
+
+.not-found-surname {
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: 900;
+  margin-top: var(--space-2xs);
+  /* Changed from -0.5rem to create breathing room */
+  color: var(--white);
+  text-transform: uppercase;
+  display: block;
+}
+
+.not-found-subtext {
+  font-size: var(--unit-0-6);
+  font-weight: 900;
+  letter-spacing: 0.5em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: var(--unit-1);
+  opacity: 0.6;
+}
+
+/* ── Reusable Component Alignment ── */
+.not-found-actions {
+  margin-top: var(--unit-2-5);
+}
+
+.btn-premium {
+  background: var(--white);
+  color: var(--black);
+  font-weight: 800;
+  padding: var(--space-base) var(--space-2-2);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-size: var(--fs-xs);
+  /* Meta style */
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  transition: all 0.4s var(--ease-premium);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.btn-premium:hover {
+  transform: var(--hover-lift-sm) var(--hover-scale-sm);
+  box-shadow: 0 var(--space-lg) var(--space-3xl) var(--white-15);
+}
+
+/* ── Global Glows integration ── */
+.not-found-glows {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  display: none; /* Removed for Tahoe monochrome neutralization */
+}
+
+.glow-orb-404 {
+  display: none;
+}
+
+.orb-p {
+  display: none;
+}
+
+.orb-s {
+  display: none;
+}
+
+
+/* ── Mobile Overrides ── */
+@media (max-width: var(--bp-mobile-val)) {
+  .not-found-number {
+    font-size: clamp(var(--unit-4), 25vw, var(--unit-8));
+  }
+
+  .btn-premium {
+    padding: var(--unit-1) var(--space-lg);
+    font-size: var(--fs-xs);
+  }
+}

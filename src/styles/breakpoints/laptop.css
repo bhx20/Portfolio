@@ -1,0 +1,680 @@
+/* =====================================================
+   LAPTOP & COMPACT DESKTOP (1025px - 1536px)
+   Optimization: 1280x720 / 1440x900
+   ===================================================== */
+
+@media (min-width: 1025px) and (max-width: 1536px),
+(max-height: 850px) and (min-width: 1025px) {
+  :root {
+    --bento-gap: var(--space-sm);
+    /* Slightly tighter gap */
+    --section-v-padding: var(--space-2xl);
+    /* Heavily reduced for vertical fitting */
+    --section-h-padding: var(--space-giant);
+    --container-max: 100%;
+  }
+
+  /* ── Infrastructure Scaling ── */
+  .section-label {
+    font-size: var(--fs-xs) !important;
+    letter-spacing: var(--ls-widest) !important;
+    margin-bottom: var(--space-md) !important;
+  }
+
+  /* ── 404 Page (Advanced UI) ── */
+  .not-found-number {
+    font-size: clamp(var(--unit-2-5), 8vw, var(--unit-6)) !important;
+    padding-right: var(--space-2xl) !important;
+    margin: 0 auto var(--space-sm) !important;
+  }
+
+  /* ── Sidebar Protection ── */
+  .module-container {
+    padding: 0 var(--space-sm) !important;
+    margin-top: var(--space-2xs) !important;
+    height: 100% !important;
+    max-height: var(--module-max-height) !important;
+  }
+
+  .bento-slide {
+    padding: var(--section-v-padding) var(--section-h-padding) !important;
+  }
+
+  /* ── Hero Scaling ── */
+  .hero-name {
+    font-size: var(--fs-giant) !important;
+    letter-spacing: var(--ls-tighter) !important;
+    line-height: var(--lh-none) !important;
+    margin-bottom: var(--space-sm) !important;
+  }
+
+  .hero-title-tag {
+    font-size: var(--fs-xs) !important;
+    padding: var(--space-3xs) var(--space-sm) !important;
+    margin-bottom: var(--space-sm) !important;
+    transform: scale(0.85);
+  }
+
+  .hero-subtitle {
+    font-size: var(--fs-sm) !important;
+    color: var(--white-45) !important;
+  }
+
+  /* -- Scroll Indicator Scaling -- */
+  .hero-scroll-indicator {
+    bottom: var(--space-md) !important;
+    gap: var(--space-sm) !important;
+    transform: translateX(-50%) scale(0.8) !important;
+  }
+
+  .mouse-icon-sim {
+    width: var(--size-22) !important;
+    height: var(--logo-size-md) !important;
+    border-width: var(--size-line-normal) !important;
+  }
+
+  .scroll-text {
+    font-size: var(--fs-xs) !important;
+    letter-spacing: var(--ls-widest) !important;
+  }
+
+  /* ── About Section Fixes (Focus: Critical Vertical Fitting) ── */
+  .about-container {
+    height: 100% !important;
+    justify-content: center !important;
+  }
+
+  .about-vision-title {
+    font-size: var(--fs-3xl) !important;
+    margin-bottom: var(--space-sm) !important;
+    line-height: var(--lh-none) !important;
+  }
+
+  .about-bio-text {
+    font-size: var(--fs-base) !important;
+    line-height: var(--lh-normal) !important;
+  }
+
+  .loc-title {
+    font-size: var(--fs-lg) !important;
+    margin-bottom: var(--space-3xs) !important;
+  }
+
+  .bento-label-sub {
+    font-size: var(--fs-xs) !important;
+    letter-spacing: var(--ls-widest) !important;
+  }
+
+  .bento-stat-medium {
+    font-size: var(--fs-3xl) !important;
+  }
+
+  .vision-card {
+    /* Padding managed by global --bento-inner-padding */
+  }
+
+  .about-bento-grid {
+    grid-template-rows: repeat(2, 1fr) auto !important;
+    gap: var(--space-sm) !important;
+    /* Minimal gap */
+    height: 100% !important;
+  }
+
+  .about-bento-grid .cta-card {
+    min-height: var(--size-85) !important;
+    /* Minimal height to prevent overlap */
+  }
+
+  .cta-title {
+    font-size: var(--fs-2xl) !important;
+  }
+
+  .cta-arrow {
+    font-size: var(--fs-2xl) !important;
+    /* Scaled down */
+  }
+
+  /* ── Showcase Section ── */
+  .project-header {
+    font-size: var(--fs-xl) !important;
+    margin-bottom: var(--space-sm) !important;
+    line-height: var(--lh-tight) !important;
+  }
+
+  .project-desc-text {
+    font-size: var(--fs-sm) !important;
+    line-height: var(--lh-normal) !important;
+  }
+
+  /* ── Contact Section Fixes ── */
+  #contact.bento-slide {
+    padding-top: var(--space-2xl) !important;
+    padding-bottom: var(--space-xl) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .contact-bento-grid {
+    grid-template-columns: 4.8fr 2.2fr !important;
+    gap: var(--space-sm) !important;
+  }
+
+  .social-icons {
+    flex-direction: row !important;
+    padding: var(--space-xs) var(--space-md) !important;
+    width: 100% !important;
+  }
+
+  .social-link-tile {
+    padding: var(--space-sm) var(--space-md) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .openfor-label {
+    font-size: var(--fs-base) !important;
+    /* Smaller to prevent clipping */
+  }
+
+  .contact-hero-eyebrow {
+    font-size: var(--fs-xs) !important;
+    letter-spacing: var(--ls-widest) !important;
+    margin-bottom: var(--space-2xs) !important;
+    opacity: 0.8 !important;
+  }
+
+  .contact-status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--space-2xs) !important;
+    padding: var(--space-3xs) var(--space-base) !important;
+    font-size: var(--fs-xs) !important;
+    font-weight: var(--fw-bold) !important;
+    border-radius: var(--radius-full) !important;
+  }
+
+  .icons-section {
+    position: fixed !important;
+    bottom: var(--floating-ui-offset) !important;
+  }
+
+  .contact-status-badge .status-dot {
+    width: var(--size-dot-md);
+    height: var(--size-dot-md);
+    background: var(--success);
+    box-shadow: 0 0 10px var(--success);
+    border-radius: 50%;
+  }
+
+  .contact-hero-title {
+    font-size: var(--fs-5xl) !important;
+    line-height: var(--lh-none) !important;
+    letter-spacing: var(--ls-tighter) !important;
+    font-weight: var(--fw-black) !important;
+    margin-bottom: var(--space-md) !important;
+    max-width: 12ch !important;
+  }
+
+  .contact-hero-sub {
+    font-size: var(--fs-sm) !important;
+    max-width: 32ch !important;
+    line-height: var(--lh-normal) !important;
+    opacity: 0.55 !important;
+  }
+
+  .contact-hero-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+
+  .hero-side-meta {
+    padding-left: var(--space-md) !important;
+    gap: var(--space-sm) !important;
+    border-left: var(--size-line-thin) solid var(--white-05) !important;
+    height: fit-content !important;
+    align-self: center !important;
+  }
+
+  .contact-meta-chip {
+    padding: var(--space-3xs) var(--space-sm) !important;
+    font-size: var(--fs-xs) !important;
+    border-radius: var(--radius-sm) !important;
+    background: var(--white-03) !important;
+  }
+
+  .contact-email-cta {
+    padding: var(--space-base) var(--space-xl) !important;
+    margin-top: auto !important;
+    border-radius: var(--radius-md) !important;
+    border: var(--size-line-thin) solid var(--white-06) !important;
+  }
+
+  .cta-email-address {
+    font-size: var(--fs-base) !important;
+    font-weight: var(--fw-extrabold) !important;
+  }
+
+  .cta-arrow {
+    font-size: var(--fs-base) !important;
+    opacity: 0.5 !important;
+  }
+
+  /* -- Optimized Tech Stack & Journey scaling (Laptop Fix) -- */
+  .tech-container .bento-card {
+    /* Padding managed by global --bento-inner-padding */
+  }
+
+  /* Specificity fix: using parent + multiple classes to override general bento padding */
+  .tech-container .bento-card.engine-bento-card {
+    /* Padding managed by global --bento-inner-padding */
+  }
+
+
+
+  .card-primary-title {
+    font-size: var(--fs-xl) !important;
+    margin-bottom: var(--space-base) !important;
+  }
+
+  .engine-bento-title {
+    font-size: var(--fs-base) !important;
+    margin-bottom: var(--space-3xs) !important;
+  }
+
+  .engine-bento-subtitle {
+    font-size: var(--fs-xs) !important;
+    line-height: var(--lh-normal) !important;
+  }
+
+  .engine-bento-icon-wrapper {
+    width: var(--size-32) !important;
+    height: var(--size-32) !important;
+    margin-bottom: var(--space-3xs) !important;
+  }
+
+  .engine-bento-icon {
+    font-size: var(--fs-sm) !important;
+  }
+
+  .evolution-role {
+    font-size: var(--fs-sm) !important;
+    margin-bottom: var(--space-3xs) !important;
+  }
+
+  .evolution-desc {
+    font-size: var(--fs-xs) !important;
+  }
+
+  .circle-label,
+  .support-tag-text {
+    font-size: var(--fs-sm) !important;
+  }
+
+  /* -- Core Stack Grid & Icon Scale-Down (Laptop) -- */
+  .core-stack-circles {
+    grid-template-columns: repeat(auto-fill, minmax(var(--size-70), 1fr)) !important;
+    gap: var(--space-sm) var(--space-2xs) !important;
+    margin-top: var(--space-2xs) !important;
+  }
+
+  .circle-icon-wrapper {
+    width: var(--size-58) !important;
+    height: var(--size-58) !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .circle-logo-img {
+    width: var(--logo-size-xs) !important;
+    height: var(--logo-size-xs) !important;
+  }
+
+  .circle-label {
+    font-size: var(--fs-xs) !important;
+    margin-top: var(--space-2xs) !important;
+  }
+
+  /* -- Tech Stack Infrastructure Tags Refinement -- */
+  .support-tag {
+    padding: var(--space-2xs) var(--space-sm) !important;
+    gap: var(--space-2xs) !important;
+  }
+
+  .support-tag-img {
+    width: var(--icon-size-xs) !important;
+    height: var(--icon-size-xs) !important;
+  }
+
+  .support-tag-text {
+    font-size: var(--fs-xs) !important;
+  }
+
+  /* -- Contact Section Refinements -- */
+  /* Ensure Top Cards are Perfect Squares */
+  #contact .contact-top-cards .contact-info-card {
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    min-height: auto !important;
+    flex: 1 !important;
+    padding: var(--space-lg) !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* Social Link 'ListTile' Styling */
+  .social-link-tile {
+    padding: var(--space-sm) var(--space-md) !important;
+    gap: var(--space-base) !important;
+    height: auto !important;
+    min-height: var(--size-70) !important;
+  }
+
+  .social-link-tile .openfor-icon {
+    width: var(--size-42) !important;
+    height: var(--size-42) !important;
+    min-width: var(--size-42) !important;
+    font-size: var(--fs-base) !important;
+  }
+
+  .social-link-tile .openfor-label {
+    font-size: var(--fs-base) !important;
+    margin-bottom: var(--space-4xs) !important;
+  }
+
+  .social-link-tile .openfor-sub {
+    font-size: var(--fs-xs) !important;
+    line-height: var(--lh-tight) !important;
+  }
+
+  .social-link-tile .item-launcher-wrap {
+    width: var(--logo-size-xs) !important;
+    height: var(--logo-size-xs) !important;
+    font-size: var(--fs-sm) !important;
+  }
+
+  /* -- Contact Card Internal Scaling (Laptop Fix) -- */
+  .analog-clock-wrapper {
+    width: var(--size-120) !important;
+    height: var(--size-120) !important;
+    scale: 1.0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+
+  .clock-ampm-row {
+    margin-top: var(--space-2xs) !important;
+  }
+
+  .clock-tz-badge,
+  .clock-ampm {
+    font-size: var(--fs-xs) !important;
+  }
+
+  .contact-info-card {
+    padding: var(--space-base) !important;
+    gap: var(--space-sm) !important;
+  }
+
+  /* -- WhatsApp Card Sync -- */
+  .whatsapp-card-premium .whatsapp-icon-wrapper {
+    font-size: var(--fs-mega) !important;
+  }
+
+  .whatsapp-card-premium .wa-status-pill {
+    font-size: var(--fs-xs) !important;
+    padding: var(--space-4xs) var(--space-2xs) !important;
+  }
+
+  .whatsapp-card-premium .wa-dot {
+    width: var(--size-dot-sm) !important;
+    height: var(--size-dot-sm) !important;
+  }
+
+  #contact .contact-top-cards {
+    gap: var(--space-sm) !important;
+    justify-content: stretch !important;
+  }
+
+  /* Further Social Tile Sizing Reduction */
+  .social-link-tile {
+    padding: var(--space-base) var(--space-md) !important;
+    min-height: auto !important;
+    gap: var(--space-md) !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .social-link-tile .openfor-icon {
+    width: var(--size-44) !important;
+    height: var(--size-44) !important;
+    min-width: var(--size-44) !important;
+    font-size: var(--fs-lg) !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .social-link-tile .openfor-label {
+    font-size: var(--fs-base) !important;
+    font-weight: var(--fw-extrabold) !important;
+    margin-bottom: var(--space-4xs) !important;
+  }
+
+  .social-link-tile .openfor-sub {
+    font-size: var(--fs-xs) !important;
+    opacity: 0.45 !important;
+  }
+
+  .social-link-tile .item-launcher-wrap {
+    width: var(--size-32) !important;
+    height: var(--size-32) !important;
+    font-size: var(--fs-sm) !important;
+    opacity: 0.25 !important;
+  }
+}
+
+/* ── Ultra-Wide Screen scaling (> 2000px) ── */
+@media (min-width: 2000px) {
+  .showcase-container {
+    max-width: 1800px;
+  }
+
+  .showcase-node-0 .project-header {
+    font-size: var(--fs-5xl);
+  }
+
+  .project-header {
+    font-size: var(--fs-3xl);
+  }
+}
+
+/* -- Social Pile Scaling (Laptop & Compact) -- */
+.social-icons {
+  padding: var(--space-lg) var(--space-xs) !important;
+  gap: var(--space-sm) !important;
+}
+
+.social-link {
+  width: var(--unit-2-1) !important;
+  height: var(--unit-2-1) !important;
+}
+
+.remote-icon {
+  width: var(--unit-1-15) !important;
+  height: var(--unit-1-15) !important;
+}
+
+/* Adjust Indicator Dot Offset for smaller links */
+.social-link:hover::before {
+  left: calc(-1 * var(--unit-1)) !important;
+}
+
+
+
+/* -- Bento Content Scaling (Laptop) -- */
+.stat-icon-wrapper {
+  width: var(--size-48) !important;
+  height: var(--size-48) !important;
+  margin-bottom: var(--space-sm) !important;
+}
+
+.stat-icon-wrapper svg {
+  width: var(--size-24) !important;
+  height: var(--size-24) !important;
+}
+
+.card-inner-center {
+  gap: var(--space-3xs) !important;
+}
+
+.loc-title {
+  margin-bottom: var(--space-4xs) !important;
+}
+
+.asset-overlay {
+  padding: var(--space-sm) !important;
+}
+
+.asset-title {
+  font-size: var(--fs-lg) !important;
+}
+
+
+
+/* -- CTA Button Scaling & Icon Clipping Fix -- */
+.about-bento-grid .cta-btn-white {
+  padding: var(--space-sm) var(--space-xl) !important;
+  font-size: var(--fs-base) !important;
+}
+
+.stat-icon-wrapper {
+  /* Ensure icons aren't clipped by giving them safe margins and removing any restrictive heights on parents */
+  flex-shrink: 0 !important;
+  margin-top: var(--space-3xs) !important;
+  /* Safe space from top */
+}
+
+.card-inner-center {
+  justify-content: center !important;
+  /* Reverting to center as flex-end might be pushing items too far on short laptop screens */
+  padding: var(--space-2xs) 0 !important;
+}
+
+
+
+
+
+
+/* -- Optimized Showcase Content Scaling (Laptop Fix) -- */
+.project-header {
+  font-size: var(--fs-xl) !important;
+  margin-bottom: var(--space-2xs) !important;
+  line-height: var(--lh-tight) !important;
+}
+
+.showcase-node-0 .project-header {
+  font-size: var(--fs-4xl) !important;
+  margin-bottom: var(--space-md) !important;
+}
+
+.project-desc-text {
+  font-size: var(--fs-base) !important;
+  line-height: var(--lh-normal) !important;
+  max-width: 95% !important;
+}
+
+.card-header-label {
+  font-size: var(--fs-xs) !important;
+  letter-spacing: var(--ls-widest) !important;
+  margin-bottom: var(--space-2xs) !important;
+}
+
+.project-meta {
+  padding-top: var(--space-sm) !important;
+  margin-top: var(--space-3xs) !important;
+  border-top: var(--size-line-thin) solid var(--white-04) !important;
+}
+
+.tool-tag {
+  font-size: var(--fs-xs) !important;
+  padding: var(--space-4xs) var(--space-2xs) !important;
+}
+
+.launch-icon-btn {
+  width: var(--unit-1-85) !important;
+  height: var(--unit-1-85) !important;
+  font-size: var(--fs-sm) !important;
+}
+
+/* Ultimate compact padding for laptop */
+.showcase-cell {
+  /* Padding managed by global --bento-inner-padding */
+}
+
+.project-card-index {
+  font-size: var(--fs-mega) !important;
+  right: var(--space-md) !important;
+  top: var(--space-md) !important;
+}
+
+
+
+/* -- Ultimate Products Content Scaling -- */
+.products-layout .project-header {
+  font-size: var(--fs-xl) !important;
+  margin-bottom: var(--space-2xs) !important;
+  line-height: var(--lh-tight) !important;
+}
+
+/* Node 0 still gets focus but scaled */
+.product-node-0 .project-header {
+  font-size: var(--fs-3xl) !important;
+  margin-bottom: var(--space-sm) !important;
+}
+
+.products-layout .about-bio-text,
+.products-layout .spec-item {
+  font-size: var(--fs-base) !important;
+  line-height: var(--lh-normal) !important;
+  margin: var(--space-3xs) 0 !important;
+  opacity: 0.8 !important;
+}
+
+.product-header-top {
+  margin-bottom: var(--space-sm) !important;
+}
+
+.product-main-content {
+  gap: var(--space-2xs) !important;
+}
+
+.status-label {
+  font-size: var(--fs-xs) !important;
+  letter-spacing: var(--ls-tight) !important;
+}
+
+.status-pulse {
+  width: var(--size-dot-md) !important;
+  height: var(--size-dot-md) !important;
+}
+
+.product-price-pill {
+  font-size: var(--fs-xs) !important;
+  padding: var(--space-4xs) var(--space-3xs) !important;
+}
+
+.spec-list {
+  margin: var(--space-2xs) 0 !important;
+  gap: var(--space-3xs) !important;
+}
+
+/* Ultra-Compact Footer for Products */
+.products-layout .project-meta {
+  padding-top: var(--space-sm) !important;
+  margin-top: var(--space-4xs) !important;
+}
+
+.products-layout .launch-icon-btn {
+  width: var(--unit-1-85) !important;
+  height: var(--unit-1-85) !important;
+  font-size: var(--fs-sm) !important;
+}

@@ -1,0 +1,34 @@
+/* =====================================================
+   SHARED COMPONENT STYLES
+   Reusable UI patterns (HoverLinks, Particles, etc.)
+   ===================================================== */
+
+@import "../globals.css";
+
+/* ── HoverLinks.tsx ── */
+.hover-link {
+  position: relative;
+  display: inline-block;
+  line-height: var(--unit-1-2);
+  height: var(--unit-1-2);
+}
+
+.h-text-bottom {
+  user-select: none;
+}
+
+/* ── ParticleBackground.tsx ── */
+.particle-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-background); /* -1 */
+  pointer-events: none;
+}
+
+/* ── Contact.tsx Icon Fix ── */
+.contact-icon-shrink {
+  flex-shrink: 0;
+}
