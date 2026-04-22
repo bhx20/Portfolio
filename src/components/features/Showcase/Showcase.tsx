@@ -9,7 +9,7 @@ import "./Showcase.css";
 const Showcase = () => {
   const { data } = usePortfolio();
   const [activeView, setActiveView] = useState<"bento" | "products">("bento");
-  const { handleMouseMove } = useLiquidGlass();
+  const { handleMouseMove, handleMouseEnter, handleMouseLeave } = useLiquidGlass();
 
   const showcase = data?.showcase || {};
   const projects = showcase.projects || [];
@@ -61,6 +61,8 @@ const Showcase = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                     onMouseMove={handleMouseMove}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {project.image && (
                       <div className="project-media">
@@ -138,6 +140,7 @@ const Showcase = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                     onMouseMove={handleMouseMove}
+                    onMouseEnter={handleMouseEnter}
                   >
                     <div className="project-aura" />
 

@@ -52,8 +52,8 @@
   --glass-glow-primary:   rgba(var(--brand-rgb), 0.05);
   --glass-glow-secondary: rgba(var(--secondary-accent-rgb), 0.03);
   --glass-glow-subtle:    rgba(var(--brand-rgb), 0.01);
-  --glass-glow-hover:     rgba(var(--brand-rgb), 0.1);
-  --glass-glow-accent:    rgba(var(--secondary-accent-rgb), 0.05);
+  --glass-glow-hover:     rgba(var(--brand-rgb), 0.03); /* Made very nominal */
+  --glass-glow-accent:    rgba(var(--secondary-accent-rgb), 0.02); /* Made very nominal */
   --glass-glow-trace:     rgba(var(--brand-rgb), 0.02);
 
   /* ── Bento Card Base (Transparent Tahoe — Apple Tahoe) ── */
@@ -64,16 +64,16 @@
   --border-strong: rgba(139, 148, 158, 0.15);
 
   /* ── 9. TEXT SYSTEM ── */
-  --text-primary: #E6EDF3;
-  --text-secondary: #8B949E;
-  --text-muted: #8B949E;
+  --text-primary: #F0F6FC;
+  --text-secondary: #A3B3C4;
+  --text-muted: #A3B3C4;
   --text-disabled: rgba(139, 148, 158, 0.20);
   
   /* Semantic Text Color Tokens */
-  --color-title:    #E6EDF3;                  /* h1 / hero name / section heading */
-  --color-subtitle: #8B949E;                  /* h2 / card title / sub-heading */
-  --color-body:     #8B949E;                  /* paragraphs / bio text */
-  --color-label:    #8B949E;                  /* uppercase caps labels / tags */
+  --color-title:    #F0F6FC;                  /* h1 / hero name / section heading */
+  --color-subtitle: #A3B3C4;                  /* h2 / card title / sub-heading */
+  --color-body:     #A3B3C4;                  /* paragraphs / bio text */
+  --color-label:    #A3B3C4;                  /* uppercase caps labels / tags */
   --color-muted:    rgba(139, 148, 158, 0.35); /* watermarks / meta / hints */
   --color-on-dark:  #8B949E;                  /* scroll text / status text */
   --color-bg-subtle: rgba(139, 148, 158, 0.02); /* hero bg number */
@@ -198,7 +198,8 @@
       transparent 100%);
   --vision-line-gradient: linear-gradient(90deg, var(--white-15) 0%, transparent 100%);
   --product-shine-gradient: linear-gradient(135deg, var(--white-05) 0%, transparent 40%, transparent 100%);
-  --product-aura-radial: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(255, 255, 255, 0.03) 0%,
+  --product-aura-radial: radial-gradient(circle 450px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(var(--brand-rgb), 0.02) 0%, /* Made very nominal */
+      rgba(var(--secondary-accent-rgb), 0.01) 25%, /* Made very nominal */
       transparent 60%);
 }

@@ -34,7 +34,8 @@ body {
   /* ── SINGLE SOURCE OF TRUTH: All page background colors come from here. ──
      Never set background-color on individual page containers.
      Change --background in theme/colors.css to update globally. */
-  background-color: transparent; /* Show gold nebula in ::after */
+  background-color: transparent;
+  /* Show gold nebula in ::after */
   /* Text color inherits from --color-body in theme/typography.css */
   color: var(--color-body);
   font-family: var(--font-main);
@@ -124,6 +125,8 @@ body::after {
   box-shadow: var(--shadow-lg);
   transform-style: preserve-3d;
   perspective: var(--depth-xl);
+  transition: transform 0.4s var(--ease-premium), box-shadow 0.4s var(--ease-premium);
+  transform: perspective(var(--depth-xl)) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
 }
 
 /* Liquid Interactive Shine */
@@ -132,40 +135,56 @@ body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--glass-shine);
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--glass-glow-hover) 0%,
+      var(--transparent) 60%);
   opacity: 0;
-  transition: opacity 0.5s var(--ease-premium);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Refraction Highlight */
-.bento-card::after,
-.rich-glass::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--glass-refraction);
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 2;
-  transition: opacity 0.5s var(--ease-premium);
-}
-
 .bento-card:hover {
-  border-color: var(--glass-border-strong);
-  transform: var(--effect-card-hover);
+  transform: perspective(var(--depth-xl)) translateY(calc(-1 * var(--space-4xs))) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  transition: transform 0.1s linear, box-shadow 0.4s var(--ease-premium);
   box-shadow: var(--shadow-xl);
 }
 
 .bento-card:hover::before,
-.rich-glass:hover::before {
-  opacity: 1;
-}
-
+.rich-glass:hover::before,
 .bento-card:hover::after,
 .rich-glass:hover::after {
-  opacity: 0.4;
+  opacity: 0.1;
+}
+
+/* ── Flowing Border Highlight ── */
+.bento-card::after,
+.rich-glass::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--brand),
+      var(--transparent) 60%);
+  border-radius: inherit;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  padding: 1px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bento-card:hover::before,
+.rich-glass:hover::before,
+.bento-card:hover::after,
+.rich-glass:hover::after {
+  opacity: 0.1;
 }
 
 /* ── The 'Rich Glass' Signature Look ── */

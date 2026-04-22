@@ -22,7 +22,7 @@ const Contact = () => {
   const { data } = usePortfolio();
   const contact = data?.contact || {};
   const ui = contact.ui || {};
-  const { handleMouseMove } = useLiquidGlass();
+  const { handleMouseMove, handleMouseEnter, handleMouseLeave } = useLiquidGlass();
 
   const [showForm, setShowForm] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
@@ -139,6 +139,8 @@ const Contact = () => {
               className={`glass-card bento-card rich-glass contact-hero-card ${showForm ? "form-active" : ""}`}
               variants={itemVariants}
               onMouseMove={handleMouseMove}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
 
               {!showForm ? (

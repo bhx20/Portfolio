@@ -41,35 +41,46 @@ const Hero = ({ isActive = true }: { isActive?: boolean }) => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="hero-branding"
           >
-            <div className="hero-title-tag">
-              <span className="status-dot"></span>
-              <span className="tag-text text-label">{hero.tag || "DIGITAL ARCHITECT"}</span>
-              <div className="tag-shimmer"></div>
-            </div>
-            <h1 className="hero-name">
-              <span className="name-block">{hero.name || "Code"}</span>
-              <span className="surname-block surname-glass">{hero.surname || "Crafter"}</span>
-            </h1>
+            <div className="hero-text-content">
 
-            <div className="hero-subtitle-container">
-              <div className="title-rotation-wrapper">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={index}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="title-text"
-                  >
-                    {titles[index]}
-                  </motion.div>
-                </AnimatePresence>
+              <h1 className="hero-name">
+                <span className="name-block">{hero.name || "Code"}</span>
+                <span className="surname-block surname-glass">{hero.surname || "Crafter"}</span>
+              </h1>
+  
+              <div className="hero-subtitle-container">
+                <div className="title-rotation-wrapper">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={index}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -20, opacity: 0 }}
+                      transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                      className="title-text"
+                    >
+                      {titles[index]}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
+
+            {/* Premium Avatar Widget */}
+            <motion.div 
+              className="hero-avatar-widget"
+              initial={{ scale: 0.8, opacity: 0, filter: "blur(10px)", x: 20 }}
+              animate={{ scale: 1, opacity: 1, filter: "blur(0px)", x: 0 }}
+              transition={{ delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="hero-avatar-glow"></div>
+              <div className="hero-avatar-border">
+                {hero.image && <img src={hero.image} alt={hero.name || "Profile"} className="hero-avatar-img" />}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -80,7 +91,7 @@ const Hero = ({ isActive = true }: { isActive?: boolean }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
               exit={{ opacity: 0, y: 20 }}
-              transition={{ delay: showScrollHint ? 1.5 : 0, duration: 0.8 }}
+              transition={{ delay: showScrollHint ? 1.5 : 0, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="mouse-icon-sim">
                 <div className="mouse-dot"></div>

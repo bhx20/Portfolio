@@ -227,8 +227,20 @@
 
 
 
-.project-aura {
-  display: none;
+.project-aura,
+.product-aura {
+  position: absolute;
+  inset: -100px;
+  background: var(--product-aura-radial);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.bento-card:hover .project-aura,
+.bento-card:hover .product-aura {
+  opacity: 0.8;
 }
 
 
@@ -345,20 +357,7 @@
   pointer-events: none;
 }
 
-.product-aura {
-  position: absolute;
-  inset: calc(-1 * var(--space-3xl));
-  background: var(--product-aura-radial);
-  opacity: 0;
-  transition: opacity 0.8s var(--ease-premium);
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(var(--blur-xl));
-}
-
-.product-card:hover .product-aura {
-  opacity: 1;
-}
+/* Aura styles consolidated above */
 
 .featured-badge {
   position: absolute;

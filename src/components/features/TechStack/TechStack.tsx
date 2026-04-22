@@ -11,7 +11,7 @@ const TechStack = () => {
   const { data } = usePortfolio();
   const tech = data?.tech || {};
   const { engine = [], career = [], techStack = {}, ui = {} } = tech;
-  const { handleMouseMove } = useLiquidGlass();
+  const { handleMouseMove, handleMouseEnter, handleMouseLeave } = useLiquidGlass();
 
   const sectionLabel = ui.sectionLabel;
   const engineTitle = ui.engineTitle;
@@ -61,6 +61,8 @@ const TechStack = () => {
                   className={`glass-card bento-card bento-compact engine-bento-card rich-glass ${gridClass}`}
                   variants={itemVariants}
                   onMouseMove={handleMouseMove}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div className="bento-icon-wrapper icon-sm">
                     <Icon />
